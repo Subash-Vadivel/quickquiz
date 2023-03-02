@@ -1,25 +1,30 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Authentication from './Authentication';
-import Admin from './Resources/components/Admin'
-
+import Admin from './Resources/Admin_components/Admin'
+import AdminLogin from './Resources/Admin_components/AdminLogin';
+import Home from './Resources/User_components/Home';
 function App() {
   return (
     <>
+      <BrowserRouter>
        <Authentication>
-        <BrowserRouter>
         <Routes>
-           <Route path='/' element={<Admin/>}>
+             
+            <Route path='/' element={<Home/>}>
 
 
-            
+            </Route>
+          
+           <Route path='/admin' element={<Admin/>}>
+
+
            </Route>
 
         </Routes>
-        
-        </BrowserRouter>
-
        </Authentication>
+       </BrowserRouter>
+
 
 
     </>

@@ -6,16 +6,15 @@ export default function Authentication(props) {
         setUser(name);
     }
     const logout=()=>{
-        setUser("");
+        setUser(null);
     }
   return (
     <>
-          <userStatus.Provider>
+          <userStatus.Provider value={{user,login,logout}}>
             {props.children}
           </userStatus.Provider>
     
     </>
   )
 }
-
-export const useAuth=()=>useContext(userStatus);
+export const useAuth=()=>{return useContext(userStatus)};
