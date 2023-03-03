@@ -1,12 +1,15 @@
 import React,{useState,useRef,useEffect} from 'react'
 import styleloginform from '../Admin_css/adminloginform.module.css'
+import { useAuth } from '../../Authentication';
+import axios from 'axios';
 export default function AdminLoginForm(props) {
   const inputRef=useRef(null);
   useEffect(()=>{
     inputRef.current.focus();
   },[]);
-  const [userid,setUserID]=useState();
-  const [password,setPassword]=useState();
+  const auth=useAuth();
+  const [userid,setUserID]=useState('');
+  const [password,setPassword]=useState('');
   const [cursorStyle, setCursorStyle] = useState('default');
   const handleMouseOver=()=>
   {
@@ -15,6 +18,12 @@ export default function AdminLoginForm(props) {
   const handleMouseOut=()=>
   {
     setCursorStyle('default');
+  }
+  const submitform=async(e)=>{
+e.preventDefault();
+     const t=await axios.post('https://quick-quiz.onrender.com/accounts/login',{user:userid,
+     password:password}).then((res)=>{auth.login(res.data.data.jwt_token);props.setStatus("success")}).catch((err)=>{console.log("catch : "+err)});
+    //  auth.login(res.data.jwt_token);props.setStatus("success")
   }
   return (
 <div className={`Auth-form-container ${styleloginform.formWrapper}`}>
@@ -43,7 +52,7 @@ export default function AdminLoginForm(props) {
             />
           </div>
           <div className="d-grid gap-2 mt-3">
-            <button type="submit" className="btn btn-primary">
+            <button onClick={submitform} className="btn btn-primary">
               Submit
             </button>
           </div><br/>

@@ -11,7 +11,6 @@ import AdminLoginRequired from './Resources/Admin_Pages/AdminLoginRequired';
 function App() {
   return (
     <>
-      <BrowserRouter>
        <Authentication>
         <Routes>
              
@@ -30,7 +29,6 @@ function App() {
 
         </Routes>
        </Authentication>
-       </BrowserRouter>
 
 
 
