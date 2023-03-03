@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import styleloginform from '../Admin_css/adminloginform.module.css'
+import axios from 'axios';
 export default function Adminforgetpassword(props) {
   const [email,setEmail]=useState('');
   const [otp,setOtp]=useState();
@@ -8,17 +9,51 @@ export default function Adminforgetpassword(props) {
   const [successOTP,setsuccessOTP]=useState(false)
   const [NewPassword,SetNewPassword]=useState("")
   const [CNewPassword,CSetNewPassword]=useState("")
-  const submitOTP=(e)=>{
-             setVerification(!verification);
+  const submitOTP=async(e)=>{
+  try{
+    const data=new Object({email:email,
+                           otp:otp});
+    await axios.post('https://quick-quiz.onrender.com/account/verify-RP-otp',data).then((res)=>{console.log(res);setVerification(true);}).catch((err)=>{console.log(err)})
+
              e.preventDefault();
+            }
+  catch(err)
+  {
+    console.log(err);
+    e.preventDefault();
+
   }
-  const submitEmail=(e)=>{
-    setVerification(!verification);
+  
+  }
+  const submitEmail=async(e)=>{
+    try
+    {
+    const data=new Object({email:email});
+    const t=await axios.post('https://quick-quiz.onrender.com/account/forgot-password',data).then((res)=>{console.log(res);setVerification(true);}).catch((err)=>{console.log(err)})
+    e.preventDefault();
+
+  }
+  catch(err)
+  {
+    console.log(err);
+    e.preventDefault();
+
+  }
+  
+
+}
+const submitnewpassword=async(e)=>{
+  try
+  {
+  const data=new Object({email:email,password:NewPassword});
+  await axios.post('https://quick-quiz.onrender.com/account/change-password',data).then((res)=>{console.log(res);setVerification(!verification);}).catch((err)=>{console.log(err)})
+}
+catch(err)
+{
+  console.log(err);
     e.preventDefault();
 }
-const submitnewpassword=(e)=>{
-  setVerification(!verification);
-  e.preventDefault();
+
 }
 const output=()=> {
   if(verification)
@@ -39,7 +74,7 @@ const output=()=> {
               />
             </div>
             <div className="d-grid gap-2 mt-3">
-              <button type="submit" className="btn btn-primary" onClick={submitOTP}>
+              <button  className="btn btn-primary" onClick={submitOTP}>
                 Submit
               </button>
             </div>
@@ -66,7 +101,7 @@ const output=()=> {
               />
             </div>
             <div className="d-grid gap-2 mt-3">
-              <button type="submit" className="btn btn-primary" onClick={submitEmail}>
+              <button  className="btn btn-primary" onClick={submitEmail}>
                 Sent OTP
               </button>
             </div>
@@ -103,7 +138,7 @@ const resetform=()=>{
         />
       </div>
       <div className="d-grid gap-2 mt-3">
-        <button type="submit" className="btn btn-primary" onClick={submitnewpassword}>
+        <button  className="btn btn-primary" onClick={submitnewpassword}>
           Reset
         </button>
       </div>
