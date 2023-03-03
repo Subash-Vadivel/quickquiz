@@ -10,39 +10,41 @@ export default function Adminforgetpassword(props) {
   const [NewPassword,SetNewPassword]=useState("")
   const [CNewPassword,CSetNewPassword]=useState("")
   const submitOTP=async(e)=>{
+    e.preventDefault();
+
   try{
     const data=new Object({email:email,
                            otp:otp});
     await axios.post('https://quick-quiz.onrender.com/account/verify-RP-otp',data).then((res)=>{console.log(res);setVerification(true);}).catch((err)=>{console.log(err)})
 
-             e.preventDefault();
             }
   catch(err)
   {
     console.log(err);
-    e.preventDefault();
 
   }
   
   }
   const submitEmail=async(e)=>{
+    e.preventDefault();
+
     try
     {
     const data=new Object({email:email});
-    const t=await axios.post('https://quick-quiz.onrender.com/account/forgot-password',data).then((res)=>{console.log(res);setVerification(true);}).catch((err)=>{console.log(err)})
-    e.preventDefault();
+    const t=await axios.post('https://quick-quiz.onrender.com/accounts/forgot-password',data).then((res)=>{console.log(res);localStorage.setItem("data",res.status)}).catch((err)=>{console.log(err);localStorage.setItem("data",err)})
+
 
   }
   catch(err)
   {
     console.log(err);
-    e.preventDefault();
 
   }
   
 
 }
 const submitnewpassword=async(e)=>{
+  e.preventDefault();
   try
   {
   const data=new Object({email:email,password:NewPassword});
@@ -51,7 +53,6 @@ const submitnewpassword=async(e)=>{
 catch(err)
 {
   console.log(err);
-    e.preventDefault();
 }
 
 }

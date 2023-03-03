@@ -10,6 +10,7 @@ export default function AdminLogin() {
   const [status,setStatus]=useState("pending");
   const location=useLocation();
   const navigate=useNavigate();
+
   const route=()=>{
    
     switch(status)
