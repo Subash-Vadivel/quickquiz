@@ -8,8 +8,9 @@ export default function Authentication(props) {
     const logout=()=>{
         setUser(null);
     }
+  
   return (
-    <>
+    <>  
           <userStatus.Provider value={{user,login,logout}}>
             {props.children}
           </userStatus.Provider>

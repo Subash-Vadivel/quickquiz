@@ -14,7 +14,7 @@ export default function AdminLogin() {
 
         <div className={`Auth-form-container ${stylelogin.formWrapper}`}>
       <form className="Auth-form">
-        <div className="Auth-form-content">
+        <div className="Auth-form-content ">
           <h3 className="Auth-form-title">Log In</h3>
           <div className="form-group mt-3">
             <label>Email address</label>
