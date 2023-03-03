@@ -1,5 +1,10 @@
 .loginWrapper
 {
-    
-    
+    background-color: black;
+}
+.formWrapper
+{
+    background-color: aliceblue;
+    padding: 20px;
+    border-radius: 10px;
 }
