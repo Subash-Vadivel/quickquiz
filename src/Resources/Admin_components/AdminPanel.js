@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function AdminPanel() {
   return (
-    <div>AdminPanel</div>
+    <div>AdminPanel Hello</div>
   )
 }
