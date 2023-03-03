@@ -30,8 +30,7 @@ export default function Adminforgetpassword(props) {
 
     try
     {
-    const data=new Object({email:email});
-    const t=await axios.post('https://quick-quiz.onrender.com/accounts/forgot-password',data).then((res)=>{console.log(res);localStorage.setItem("data",res.status)}).catch((err)=>{console.log(err);localStorage.setItem("data",err)})
+    const t=await axios.post('https://quick-quiz.onrender.com/accounts/forgot-password',{email:email}).then((res)=>{console.log(res);localStorage.setItem("data",res.status)}).catch((err)=>{console.log(err);localStorage.setItem("data",err)})
 
 
   }
