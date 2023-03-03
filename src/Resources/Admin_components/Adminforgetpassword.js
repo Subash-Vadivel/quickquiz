@@ -21,7 +21,7 @@ export default function Adminforgetpassword() {
           </div>
           <div className="d-grid gap-2 mt-3">
             <button type="submit" className="btn btn-primary">
-              Submit
+              Reset
             </button>
           </div>
           
