@@ -2,19 +2,19 @@ import React, { useContext, useEffect, useState } from 'react'
 export const userStatus=React.createContext();
 export default function Authentication(props) {
     const [user,setUser]=useState(null);
-    const login=(name)=>{
-        setUser(name);
-        console.log(name);
-        localStorage.setItem('jwt',name);
+    const login=(data)=>{
+        setUser(data);
+        console.log(data);
+        localStorage.setItem('user',data);
     }
     const logout=()=>{
         setUser(null);
-        localStorage.removeItem('jwt')
+        localStorage.removeItem('user')
     }
   useEffect(()=>{
-    if(localStorage.getItem('jwt')!==undefined)
+    if(localStorage.getItem('user')!==undefined)
     {
-      setUser(localStorage.getItem('jwt'));
+      setUser(localStorage.getItem('user'));
     }
   },[])
   return (

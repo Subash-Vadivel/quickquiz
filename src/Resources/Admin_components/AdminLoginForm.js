@@ -1,7 +1,7 @@
 import React,{useState,useRef,useEffect} from 'react'
 import styleloginform from '../Admin_css/adminloginform.module.css'
 import { useAuth } from '../../Authentication';
-import axios from 'axios';
+import axiosPrivate from '../../Api/axiosPrivate';
 export default function AdminLoginForm(props) {
   const inputRef=useRef(null);
   useEffect(()=>{
@@ -21,7 +21,7 @@ export default function AdminLoginForm(props) {
   }
   const submitform=async(e)=>{
 e.preventDefault();
-     const t=await axios.post('https://quick-quiz.onrender.com/accounts/login',{user:userid,
+     await axiosPrivate.post('/accounts/login',{user:userid,
      password:password}).then((res)=>{auth.login(res.data.data.jwt_token);props.setStatus("success")}).catch((err)=>{console.log("catch : "+err)});
     //  auth.login(res.data.jwt_token);props.setStatus("success")
   }

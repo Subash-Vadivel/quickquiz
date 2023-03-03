@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import styleloginform from '../Admin_css/adminloginform.module.css'
-import axios from 'axios';
+import axiosPrivate from '../../Api/axiosPrivate';
 export default function Adminforgetpassword(props) {
   const [email,setEmail]=useState('');
   const [otp,setOtp]=useState();
@@ -14,7 +14,7 @@ export default function Adminforgetpassword(props) {
     e.preventDefault();
 
   try{
-    await axios.post('https://quick-quiz.onrender.com/accounts/verify-RP-otp',{
+    await axiosPrivate.post('/accounts/verify-RP-otp',{
       email:email,otp:otp}).then((res)=>{setsuccessOTP(true)}).catch((err)=>{setWarning("Enter Valid OTP")});
             }
   catch(err)
@@ -28,7 +28,7 @@ export default function Adminforgetpassword(props) {
     e.preventDefault();
 
     try{
-    await axios.post('https://quick-quiz.onrender.com/accounts/forgot-password',{
+    await axiosPrivate.post('/accounts/forgot-password',{
     email:email}).then((res)=>{setVerification(true)}).catch((err)=>{setWarning("Enter Valid Email")});
     }
     catch(err)
@@ -42,7 +42,7 @@ const submitnewpassword=async(e)=>{
   e.preventDefault();
   try
   {
-    await axios.post('https://quick-quiz.onrender.com/accounts/change-password',{
+    await axiosPrivate.post('/accounts/change-password',{
       email:email,password:NewPassword}).then((res)=>{props.setStatus("pending");}).catch((err)=>{setWarning("Some Thing Went Wrong Try Again")});
 }
 catch(err)
