@@ -7,6 +7,15 @@ export default function AdminLoginForm(props) {
   },[]);
   const [userid,setUserID]=useState();
   const [password,setPassword]=useState();
+  const [cursorStyle, setCursorStyle] = useState('default');
+  const handleMouseOver=()=>
+  {
+    setCursorStyle('default');
+  }
+  const handleMouseOut=()=>
+  {
+    setCursorStyle('default');
+  }
   return (
 <div className={`Auth-form-container ${styleloginform.formWrapper}`}>
       <form className="Auth-form">
@@ -37,12 +46,11 @@ export default function AdminLoginForm(props) {
             <button type="submit" className="btn btn-primary">
               Submit
             </button>
-          </div>
-          <p className="forgot-password text-right mt-2">
-            Forgot <span onClick={()=>{
-              props.setStatus("forgot")
-            }}>password?</span>
-          </p>
+          </div><br/>
+          <span className="forgot-password text-right mt-2" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} style={{cursor:cursorStyle}}onClick={()=>{
+            props.setStatus("forgot")
+          }}>
+            Forgot password ?</span>
         </div>
       </form>
     </div>

@@ -7,7 +7,7 @@ export default function Adminforgetpassword() {
 <div className={`Auth-form-container ${styleloginform.formWrapper}`}>
       <form className="Auth-form">
         <div className="Auth-form-content ">
-          <h3 className="Auth-form-title">Forget Password</h3>
+          <h3 className="Auth-form-title">Forgot Password</h3>
           <div className="form-group mt-3">
             <label>Email address</label>
             <input
