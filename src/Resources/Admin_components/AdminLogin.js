@@ -33,6 +33,7 @@ export default function AdminLogin() {
               type="password"
               className="form-control mt-1"
               placeholder="Enter password"
+              onChange={(e)=>{setPassword(e.target.value)}}
             />
           </div>
           <div className="d-grid gap-2 mt-3">
