@@ -16,6 +16,10 @@ export default function Adminforgetpassword(props) {
     setVerification(!verification);
     e.preventDefault();
 }
+const submitnewpassword=(e)=>{
+  setVerification(!verification);
+  e.preventDefault();
+}
 const output=()=> {
   if(verification)
     {
@@ -81,7 +85,7 @@ const resetform=()=>{
       <div className="form-group mt-3">
         <label>New Password</label>
         <input
-        value={email}
+        value={NewPassword}
           type="password"
           className="form-control mt-1"
           placeholder="Enter New Password"
@@ -91,7 +95,7 @@ const resetform=()=>{
       <div className="form-group mt-3">
         <label>Confirm NewPassword</label>
         <input
-        value={email}
+        value={CNewPassword}
           type="password"
           className="form-control mt-1"
           placeholder="Confirm New Password"
@@ -99,7 +103,7 @@ const resetform=()=>{
         />
       </div>
       <div className="d-grid gap-2 mt-3">
-        <button type="submit" className="btn btn-primary" onClick={submitEmail}>
+        <button type="submit" className="btn btn-primary" onClick={submitnewpassword}>
           Reset
         </button>
       </div>
