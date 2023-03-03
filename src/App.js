@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Authentication from './Authentication';
 import Admin from './Resources/Admin_components/Admin'
+import "bootstrap/dist/css/bootstrap.min.css";
 import AdminLogin from './Resources/Admin_components/AdminLogin';
 import Home from './Resources/User_components/Home';
 function App() {
