@@ -1,7 +1,10 @@
-import React,{useState} from 'react'
+import React,{useState,useRef,useEffect} from 'react'
 import styleloginform from '../Admin_css/adminloginform.module.css'
 export default function AdminLoginForm(props) {
-    
+  const inputRef=useRef(null);
+  useEffect(()=>{
+    inputRef.current.focus();
+  },[]);
   const [userid,setUserID]=useState();
   const [password,setPassword]=useState();
   return (
@@ -13,6 +16,7 @@ export default function AdminLoginForm(props) {
             <label>Email address</label>
             <input
             value={userid}
+            ref={inputRef}
               type="email"
               className="form-control mt-1"
               placeholder="Enter email"
