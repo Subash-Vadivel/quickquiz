@@ -3,10 +3,11 @@ import { useState } from 'react';
 import styleloginform from '../Admin_css/adminloginform.module.css'
 export default function Adminforgetpassword(props) {
   const [email,setEmail]=useState('');
-  const [opt,setOtp]=useState();
-  const [verification,setVerification]=useState(true);
-  const submit=()=>{
+  const [otp,setOtp]=useState();
+  const [verification,setVerification]=useState(false);
+  const submit=(e)=>{
              setVerification(!verification);
+             e.preventDefault();
   }
   return (
     <>
@@ -19,11 +20,11 @@ export default function Adminforgetpassword(props) {
           <div className="form-group mt-3">
             <label>Enter OTP</label>
             <input
-            value={opt}
+            value={otp}
               type="number"
                
              className="form-control mt-1"
-              placeholder="Enter email"
+              placeholder="Enter OTP"
               onChange={(e)=>{setOtp(e.target.value)}}
             />
           </div>
