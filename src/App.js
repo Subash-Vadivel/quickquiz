@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import AdminLogin from './Resources/Admin_components/AdminLogin';
 import Home from './Resources/User_components/Home';
 import AdminPanel from './Resources/Admin_components/AdminPanel';
+import AdminLoginRequired from './Resources/Admin_components/AdminLoginRequired';
 function App() {
   return (
     <>
@@ -19,8 +20,8 @@ function App() {
             </Route>
           
            <Route path='/admin' element={<Admin/>}>
-                    <Route index element={<AdminLogin/>}/>
-                    <Route path='dashboard' element={<AdminPanel/>}></Route>
+                    <Route path='login' element={<AdminLogin/>}/>
+                    <Route index element={<AdminLoginRequired><AdminPanel/></AdminLoginRequired>}></Route>
 
 
            </Route>
