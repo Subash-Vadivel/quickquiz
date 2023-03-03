@@ -1,8 +1,26 @@
 import React, { useState } from 'react'
 import { Container, Row ,Col} from 'react-bootstrap'
+import { Link, useLocation } from 'react-router-dom';
+import Adminforgetpassword from '../Admin_components/Adminforgetpassword';
 import AdminLoginForm from '../Admin_components/AdminLoginForm'
 import stylelogin from '../Admin_css/adminlogin.module.css'
+import { useNavigate } from 'react-router-dom';
+import { Location } from 'react-router-dom';
 export default function AdminLogin() {
+  const [status,setStatus]=useState("pending");
+  const location=useLocation();
+  const navigate=useNavigate();
+  const route=()=>{
+    switch(status)
+    {
+      case "pending":
+        return <AdminLoginForm status={status} setStatus={setStatus}/>
+      case "forgot":
+        return <Adminforgetpassword status={status} setStatus={setStatus}/>
+      case "success":
+        return navigate(location.state?location.state.path:"/",{replace:true});
+    }
+  }
   return (
     <>
     <Container fluid className={stylelogin.loginWrapper}>
@@ -11,7 +29,10 @@ export default function AdminLogin() {
         
         <Col md={4} sm={8} xs={10}>
 
-              <AdminLoginForm/>
+
+
+              {route}
+               
 
 
         </Col>
