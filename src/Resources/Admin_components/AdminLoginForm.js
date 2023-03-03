@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import styleloginform from '../Admin_css/adminloginform.module.css'
-export default function AdminLoginForm() {
+export default function AdminLoginForm(props) {
     
   const [userid,setUserID]=useState();
   const [password,setPassword]=useState();
@@ -35,7 +35,9 @@ export default function AdminLoginForm() {
             </button>
           </div>
           <p className="forgot-password text-right mt-2">
-            Forgot <span >password?</span>
+            Forgot <span onClick={()=>{
+              props.setStatus("forgot")
+            }}>password?</span>
           </p>
         </div>
       </form>
