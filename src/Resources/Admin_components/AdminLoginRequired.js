@@ -7,7 +7,7 @@ export default function AuthLoginRequired(props) {
     if(!auth.user)
     {
         console.log("not logged");
-        return <Navigate to='/login' state={{path:location.pathname}}></Navigate>
+        return <Navigate to='login' state={{path:location.pathname}}></Navigate>
     }
   return props.children;
 }

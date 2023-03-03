@@ -20,8 +20,9 @@ function App() {
             </Route>
           
            <Route path='/admin' element={<Admin/>}>
-                    <Route path='login' element={<AdminLogin/>}/>
                     <Route index element={<AdminLoginRequired><AdminPanel/></AdminLoginRequired>}></Route>
+                    <Route path='login' element={<AdminLogin/>}/>
+
 
 
            </Route>
