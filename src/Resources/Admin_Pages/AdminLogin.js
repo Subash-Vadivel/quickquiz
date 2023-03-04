@@ -11,8 +11,8 @@ export default function AdminLogin() {
   const location=useLocation();
   const navigate=useNavigate();
 
-  const route=()=>{
-   
+  const route=()=>
+  { 
     switch(status)
     {
       case "pending":
@@ -20,7 +20,7 @@ export default function AdminLogin() {
       case "forgot":
         return <Adminforgetpassword status={status} setStatus={setStatus}/>
       case "success":
-        return navigate(location.state?location.state.path:"/",{replace:true});
+        return navigate(location.state?location.state.path:"/admin",{replace:true});
       default:
         return <h2>Some Thing Went Wrong</h2>
       }

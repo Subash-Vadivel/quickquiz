@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import styleloginform from '../Admin_css/adminloginform.module.css'
-import axios from 'axios';
+import axiosPrivate from '../../Api/axiosPrivate';
 export default function Adminforgetpassword(props) {
   const [email,setEmail]=useState('');
   const [otp,setOtp]=useState();
@@ -9,14 +9,13 @@ export default function Adminforgetpassword(props) {
   const [successOTP,setsuccessOTP]=useState(false)
   const [NewPassword,SetNewPassword]=useState("")
   const [CNewPassword,CSetNewPassword]=useState("")
+  const [warning,setWarning]=useState();
   const submitOTP=async(e)=>{
     e.preventDefault();
 
   try{
-    const data=new Object({email:email,
-                           otp:otp});
-    await axios.post('https://quick-quiz.onrender.com/account/verify-RP-otp',data).then((res)=>{console.log(res);setVerification(true);}).catch((err)=>{console.log(err)})
-
+    await axiosPrivate.post('/accounts/verify-RP-otp',{
+      email:email,otp:otp}).then((res)=>{setsuccessOTP(true)}).catch((err)=>{setWarning("Enter Valid OTP")});
             }
   catch(err)
   {
@@ -28,27 +27,23 @@ export default function Adminforgetpassword(props) {
   const submitEmail=async(e)=>{
     e.preventDefault();
 
-    try
+    try{
+    await axiosPrivate.post('/accounts/forgot-password',{
+    email:email}).then((res)=>{setVerification(true)}).catch((err)=>{setWarning("Enter Valid Email")});
+    }
+    catch(err)
     {
-    const data=new Object({email:email});
-    const t=await axios.post('https://quick-quiz.onrender.com/accounts/forgot-password',data).then((res)=>{console.log(res);localStorage.setItem("data",res.status)}).catch((err)=>{console.log(err);localStorage.setItem("data",err)})
+      console.log(err);
 
-
-  }
-  catch(err)
-  {
-    console.log(err);
-
-  }
-  
+    }
 
 }
 const submitnewpassword=async(e)=>{
   e.preventDefault();
   try
   {
-  const data=new Object({email:email,password:NewPassword});
-  await axios.post('https://quick-quiz.onrender.com/account/change-password',data).then((res)=>{console.log(res);setVerification(!verification);}).catch((err)=>{console.log(err)})
+    await axiosPrivate.post('/accounts/change-password',{
+      email:email,password:NewPassword}).then((res)=>{props.setStatus("pending");}).catch((err)=>{setWarning("Some Thing Went Wrong Try Again")});
 }
 catch(err)
 {
@@ -74,6 +69,7 @@ const output=()=> {
                 onChange={(e)=>{setOtp(e.target.value)}}
               />
             </div>
+            <p>{warning}</p>
             <div className="d-grid gap-2 mt-3">
               <button  className="btn btn-primary" onClick={submitOTP}>
                 Submit
@@ -101,6 +97,7 @@ const output=()=> {
                 onChange={(e)=>{setEmail(e.target.value)}}
               />
             </div>
+            <p>{warning}</p>
             <div className="d-grid gap-2 mt-3">
               <button  className="btn btn-primary" onClick={submitEmail}>
                 Sent OTP
