@@ -5,12 +5,32 @@ import '../User_css/styles2.css'
 import image from './asset/loginImage1.jpg'
 import { Forgetpassword } from '../User_components/Login/Forgetpassword'
 import { Signin } from '../User_components/Login/Signin'
+import axiosPrivate from '../../Api/axiosPrivate'
+import { useAuth } from '../../Authentication'
+import { useNavigate } from 'react-router-dom'
 export function Login() {
-  const[user,setUser]=useState({email:"",password:""})
+  const [email,setEmail]=useState('')
+  const [password,setPassword]=useState('')
+  const auth=useAuth()
   const [valid,setValid]=useState(false)
-  const submit = () => {
-    console.log(user.email);
-    console.log(user.password);
+  const [warning,setWarning]=useState('');
+  const navigate=useNavigate();
+  const submit = async(e) => {
+    e.preventDefault();
+    console.log("hghg");
+    await axiosPrivate.post('/accounts/login',{user:email,password:password}).then((res)=>{
+      if(res.status==="error")
+      {
+          setWarning("Please Verify Email");
+          
+      }
+      else
+      {
+          auth.login(res.data.details);
+          navigate('/')
+      }
+
+    }).catch((err)=>{console.log(err.status)});
   }
   const [PageContent,setPageContent]=useState(false)
   const forget=()=>{
@@ -30,14 +50,18 @@ export function Login() {
           <h1>Welcome to Login</h1>
           <label>Email</label>
           <br />
-          <input type="text" maxLength={40} required onChange={(e)=>{setUser({email:e.target.value,password:user.password})}}/>
+          <input type="text" maxLength={40} required value={email} onChange={(e)=>{setEmail(e.target.value)}}/>
           <br />
           <label>Password</label>
           <br />
-          <input type="text"  maxLength={20} required onChange={(e)=>{setUser({email:user.email,password:e.target.value})}}/>
+          <input type="password"  maxLength={20} required value={password} onChange={(e)=>{setPassword(e.target.value)}}/>
+          <br/><br/>
           <p  onClick={forget}>Forget Password ?</p>
+          <br/>
+          <p style={{textAlign:"center",color:"red"}}>{warning}</p>
+          <br/>
         <div className='btns'>
-          <button onClick={()=>submit()}>Login</button>
+          <button onClick={submit}>Login</button>
           <h4 style={{textAlign:'center'}}>OR</h4>
           <button onClick={()=>setValid(true)}>Signup</button>
         </div>
