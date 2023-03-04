@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Authentication from './Authentication';
-
+import Dashboard from './Resources/Admin_Pages/AdminDashboard';
 import Admin from './Resources/Admin_Pages/Admin'
 import "bootstrap/dist/css/bootstrap.min.css";
 import AdminLogin from './Resources/Admin_Pages/AdminLogin';
@@ -16,6 +16,10 @@ function App() {
         <Routes>
              
             <Route path='/' element={<Home/>}>
+
+
+            </Route>
+            <Route path='/dashboard' element={<Dashboard/>}>
 
 
             </Route>
