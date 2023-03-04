@@ -1,0 +1,52 @@
+import React from 'react'
+import { useState } from 'react'
+import '../User_css/styles.css'
+import '../User_css/styles2.css'
+import image from './asset/loginImage1.jpg'
+import { Forgetpassword } from '../User_components/Login/Forgetpassword'
+import { Signin } from '../User_components/Login/Signin'
+export function Login() {
+  const[user,setUser]=useState({email:"",password:""})
+  const [valid,setValid]=useState(false)
+  const submit = () => {
+    console.log(user.email);
+    console.log(user.password);
+  }
+  const [PageContent,setPageContent]=useState(false)
+  const forget=()=>{
+    setPageContent(true)
+  }
+  return (
+    (valid===false)?
+    <div className='fullcontainer'>
+      <div className='subcontainer'>
+      <div className='left'>
+      <img src={image} alt="" />
+      </div>
+      {PageContent===false ? 
+      <div className='right'>
+        <div className='sublogin'>
+          <i className='fas fa-user'></i>
+          <h1>Welcome to Login</h1>
+          <label>Email</label>
+          <br />
+          <input type="text" maxLength={40} required onChange={(e)=>{setUser({email:e.target.value,password:user.password})}}/>
+          <br />
+          <label>Password</label>
+          <br />
+          <input type="text"  maxLength={20} required onChange={(e)=>{setUser({email:user.email,password:e.target.value})}}/>
+          <p  onClick={forget}>Forget Password ?</p>
+        <div className='btns'>
+          <button onClick={()=>submit()}>Login</button>
+          <h4 style={{textAlign:'center'}}>OR</h4>
+          <button onClick={()=>setValid(true)}>Signup</button>
+        </div>
+          {/* <h2>Hello world</h2> */}
+
+        </div>
+      </div> : <Forgetpassword/>}
+      </div>
+      
+    </div>:<Signin/>
+  )
+}

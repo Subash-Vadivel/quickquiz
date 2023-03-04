@@ -5,17 +5,23 @@ import Authentication from './Authentication';
 import Admin from './Resources/Admin_Pages/Admin'
 import "bootstrap/dist/css/bootstrap.min.css";
 import AdminLogin from './Resources/Admin_Pages/AdminLogin';
-import Home from './Resources/User_components/Home';
+import Home from './Resources/User_Pages/Home';
 import AdminPanel from './Resources/Admin_Pages/AdminPanel';
 import AdminLoginRequired from './Resources/Admin_Pages/AdminLoginRequired';
+import Base from './Resources/User_Pages/Base';
+import UserLoginRequired from './Resources/User_components/UserLoginRequired';
+import { Login } from './Resources/User_Pages/Login';
 function App() {
   return (
     <>
        <Authentication>
         <Routes>
              
-            <Route path='/' element={<Home/>}>
+            <Route path='/' element={<Base/>}>
+              <Route index element={<UserLoginRequired><Home/></UserLoginRequired>}/>
+              <Route path='login' element={<Login/>}/>
 
+                
 
             </Route>
           
