@@ -4,14 +4,18 @@ import { Resetpassword } from './Resetpassword'
 import image from '../../User_Pages/asset/loginImage1.jpg'
 import axiosPrivate from '../../../Api/axiosPrivate'
 export function OtpGeneration(props) {
-  const [otp,setOtp]=useState([])
+  const re=useRef();
+  const [otp,setOtp]=useState('');
+  const [otparray,setOtparray]=useState({d1:"",d2:"",d3:"",d4:"",d5:"",d6:""})
   const [valid,setValid]=useState(false)
+  useEffect(()=>{
+      setOtp(otparray.d1+otparray.d2+otparray.d3+otparray.d4+otparray.d5+otparray.d6);
+  },[otparray])
   const otpref=useRef()
   const submited=async(e)=>{
     e.preventDefault();
-    const o=()=>{return otp.join("")}
-    console.log(o);
-    await axiosPrivate.post('/accounts/verify-RP-otp',{email:props.value,otp:o}).then((res)=>{setValid(true)}).catch((err)=>{console.log(err)})
+    console.log(otp);
+    await axiosPrivate.post('/accounts/verify-RP-otp',{email:props.value,otp:otp}).then((res)=>{setValid(true)}).catch((err)=>{console.log(err)})
     
 
   }
@@ -27,12 +31,12 @@ export function OtpGeneration(props) {
         {/* <img src={image} alt="" /> */}
           {/* <h1>Enter the OTP:</h1> */}
           <div className='digits'>
-            <input type="text" maxLength="1" ref={otpref} onChange={(e)=>setOtp([...otp,e.target.value])}/>
-            <input type="text" maxLength="1"  onChange={(e)=>setOtp([...otp,e.target.value])} />
-            <input type="text" maxLength="1"  onChange={(e)=>setOtp([...otp,e.target.value])} />
-            <input type="text" maxLength="1"  onChange={(e)=>setOtp([...otp,e.target.value])} />
-            <input type="text" maxLength="1"  onChange={(e)=>setOtp([...otp,e.target.value])}/>
-            <input type="text" maxLength="1"  onChange={(e)=>setOtp([...otp,e.target.value])}/>
+            <input type="text" maxLength="1" id="1" ref={re} onChange={(e)=>{setOtparray({d1:e.target.value,d2:otparray.d2,d3:otparray.d3,d4:otparray.d4,d5:otparray.d5,d6:otparray.d6});document.getElementById(2).focus()}}/>
+            <input type="text" maxLength="1" id="2" ref={re} onChange={(e)=>{setOtparray({d1:otparray.d1,d2:e.target.value,d3:otparray.d3,d4:otparray.d4,d5:otparray.d5,d6:otparray.d6});document.getElementById(3).focus()}} />
+            <input type="text" maxLength="1" id="3" ref={re} onChange={(e)=>{setOtparray({d1:otparray.d1,d2:otparray.d2,d3:e.target.value,d4:otparray.d4,d5:otparray.d5,d6:otparray.d6});document.getElementById(4).focus()}} />
+            <input type="text" maxLength="1" id="4" ref={re} onChange={(e)=>{setOtparray({d1:otparray.d1,d2:otparray.d2,d3:otparray.d3,d4:e.target.value,d5:otparray.d5,d6:otparray.d6});document.getElementById(5).focus()}} />
+            <input type="text" maxLength="1" id="5" ref={re} onChange={(e)=>{setOtparray({d1:otparray.d1,d2:otparray.d2,d3:otparray.d3,d4:otparray.d4,d5:e.target.value,d6:otparray.d6});document.getElementById(6).focus()}} />
+            <input type="text" maxLength="1" id="6" ref={re} onChange={(e)=>{setOtparray({d1:otparray.d1,d2:otparray.d2,d3:otparray.d3,d4:otparray.d4,d5:otparray.d5,d6:e.target.value});document.getElementById(1).focus()}} />
         </div>
           <br />
           <button className='submitotp' onClick={submited}>submit</button>
