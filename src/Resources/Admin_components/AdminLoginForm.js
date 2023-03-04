@@ -22,7 +22,7 @@ export default function AdminLoginForm(props) {
   const submitform=async(e)=>{
 e.preventDefault();
      await axiosPrivate.post('/accounts/login',{user:userid,
-     password:password}).then((res)=>{auth.login(res.data.data.jwt_token);props.setStatus("success")}).catch((err)=>{console.log("catch : "+err)});
+     password:password}).then((res)=>{auth.login(res.data.details);props.setStatus("success")}).catch((err)=>{console.log("catch : "+err)});
     //  auth.login(res.data.jwt_token);props.setStatus("success")
   }
   return (

@@ -1,22 +1,29 @@
-import React, { useContext, useEffect, useState } from 'react'
+import axios from './Api/axiosPrivate'
+import React, { useContext,  useState } from 'react'
 export const userStatus=React.createContext();
 export default function Authentication(props) {
-    const [user,setUser]=useState(null);
+    const [user,setUser]=useState(localStorage.getItem('user'));
     const login=(data)=>{
-        setUser(data);
-        console.log(data);
-        localStorage.setItem('user',data);
+      
+      localStorage.setItem('user',data.firstName);
+      localStorage.setItem('details',JSON.stringify(data));
+        setUser(data.firstName);
+        console.log(data.firstName);
     }
-    const logout=()=>{
-        setUser(null);
+    const logout=async()=>{
+
+       
+      await axios.post('/accounts/logout').then(()=>{
+
+        setUser(false);
         localStorage.removeItem('user')
+        // await axios.post('/logout');
+        localStorage.removeItem('details')
+      }).catch((err)=>{
+        console.log(err);
+      })
+
     }
-  useEffect(()=>{
-    if(localStorage.getItem('user')!==undefined)
-    {
-      setUser(localStorage.getItem('user'));
-    }
-  },[])
   return (
     <>  
           <userStatus.Provider value={{user,login,logout}}>
