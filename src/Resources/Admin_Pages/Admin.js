@@ -6,8 +6,13 @@ export default function Admin() {
   
   return (
     <div className={styles.dFlex}>
+      <div className={styles.fixedSideBar}>
     <Sidebar/>
+    </div>
+    <div className={styles.outlet}>
+
     <Outlet/>
+    </div>
     </div>
   )
 }
