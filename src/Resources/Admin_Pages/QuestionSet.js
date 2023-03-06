@@ -45,15 +45,15 @@ export default function QuestionSet() {
 
     const handleSubmit = async(event) => {
         event.preventDefault();
-        details.q.splice(details.q.length-1,1);
-        await axiosPrivate('/question/new',{
-          topic:qsettitle,
-          category:category,
-          questions:details.q,
-          type:qdifficulty,
-          time:time,
-          mode:mode
-        }).then((res)=>{console.log(res)}).catch((err)=>{console.log(err)})
+        // details.q.splice(details.q.length-1,1);
+        // await axiosPrivate('/question/new',{
+        //   topic:qsettitle,
+        //   category:category,
+        //   questions:details.q,
+        //   type:qdifficulty,
+        //   time:time,
+        //   mode:mode
+        // }).then((res)=>{console.log(res)}).catch((err)=>{console.log(err)})
         
     };
 
