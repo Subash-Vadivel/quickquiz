@@ -4,7 +4,8 @@ import Authentication from './Authentication';
 import Admin from './Resources/Admin_components/Admin'
 import "bootstrap/dist/css/bootstrap.min.css";
 import AdminLogin from './Resources/Admin_components/AdminLogin';
-import Home from './Resources/User_components/Home';
+import Home from './Resources/User_components/Home/home';
+
 function App() {
   return (
     <>
@@ -12,8 +13,7 @@ function App() {
        <Authentication>
         <Routes>
              
-            <Route path='/' element={<Home/>}>
-
+           <Route path='/' element={<Home/>}>
 
             </Route>
           
