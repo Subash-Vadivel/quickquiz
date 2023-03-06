@@ -12,6 +12,8 @@ import Base from './Resources/User_Pages/Base';
 import UserLoginRequired from './Resources/User_components/UserLoginRequired';
 import 'react-toastify/dist/ReactToastify.css';
 import { Login } from './Resources/User_Pages/Login';
+import DashBoard from './Resources/Admin_Pages/DashBoard';
+import QuestionSet from './Resources/Admin_Pages/QuestionSet';
 function App() {
   return (
     <>
@@ -26,13 +28,13 @@ function App() {
             <Route path='login' element={<Login/>}/>
 
           
-           <Route path='/admin' element={<Admin/>}>
-                    <Route index element={<AdminLoginRequired><AdminPanel/></AdminLoginRequired>}></Route>
-                    <Route path='login' element={<AdminLogin/>}/>
-
-
+           <Route path='/admin' element={<AdminLoginRequired><Admin/></AdminLoginRequired>}>
+                    <Route index element={<DashBoard/>}></Route>
+                    <Route path="setquestion" element={<QuestionSet/>}></Route>
 
            </Route>
+           
+           <Route path='admin/login' element={<AdminLogin/>}/>
 
         </Routes>
        </Authentication>

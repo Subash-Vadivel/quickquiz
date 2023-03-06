@@ -5,7 +5,7 @@ export default function AdminPanel() {
   const auth=useAuth();
   return (
     <>
-    <Sidebar/>
+    
     </>
   )
 }

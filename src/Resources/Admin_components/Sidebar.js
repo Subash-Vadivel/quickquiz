@@ -8,8 +8,10 @@ import {
   CDBSidebarMenu,
   CDBSidebarMenuItem,
 } from 'cdbreact';
-import { NavLink } from 'react-router-dom';
+import {  NavLink, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../Authentication';
 export default function Sidebar() {
+    const auth=useAuth()
     return (
       <div style={{ display: 'flex', height: '100vh', overflow: 'scroll initial' }}>
         <CDBSidebar textColor="#fff" backgroundColor="#333">
@@ -21,21 +23,21 @@ export default function Sidebar() {
   
           <CDBSidebarContent className="sidebar-content">
             <CDBSidebarMenu>
-              <NavLink exact to="/" activeClassName="activeClicked">
+              <NavLink exact to='/admin' activeClassName="activeClicked">
                 <CDBSidebarMenuItem icon="columns">Dashboard</CDBSidebarMenuItem>
               </NavLink>
-              <NavLink exact to="/tables" activeClassName="activeClicked">
-                <CDBSidebarMenuItem icon="table">Tables</CDBSidebarMenuItem>
+              <NavLink exact to='setquestion' activeClassName="activeClicked">
+                <CDBSidebarMenuItem icon="table">Add Question</CDBSidebarMenuItem>
               </NavLink>
-              <NavLink exact to="/profile" activeClassName="activeClicked">
-                <CDBSidebarMenuItem icon="user">Profile page</CDBSidebarMenuItem>
+              <NavLink exact to="profile" activeClassName="activeClicked">
+                <CDBSidebarMenuItem icon="user">Add Staff</CDBSidebarMenuItem>
               </NavLink>
-              <NavLink exact to="/analytics" activeClassName="activeClicked">
+              <NavLink exact to="analytics" activeClassName="activeClicked">
                 <CDBSidebarMenuItem icon="chart-line">Analytics</CDBSidebarMenuItem>
               </NavLink>
   
-              <NavLink exact to="/hero404" target="_blank" activeClassName="activeClicked">
-                <CDBSidebarMenuItem ><FaSignOutAlt/>Log Out</CDBSidebarMenuItem>
+              <NavLink onClick={auth.logout}  activeClassName="activeClicked">
+                <CDBSidebarMenuItem icon='power-off'>Log Out</CDBSidebarMenuItem>
               </NavLink>
             </CDBSidebarMenu>
           </CDBSidebarContent>
