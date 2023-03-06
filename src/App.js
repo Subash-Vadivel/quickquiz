@@ -18,12 +18,13 @@ function App() {
        <Authentication>
         <Routes>
              
-            <Route path='/' element={<Base/>}>
-              <Route index element={<UserLoginRequired><Home/></UserLoginRequired>}/>
-              <Route path='login' element={<Login/>}/>
+            <Route path='/' element={<UserLoginRequired><Base/></UserLoginRequired>}>
+              <Route index element={<Home/>}/>
 
             
             </Route>
+            <Route path='login' element={<Login/>}/>
+
           
            <Route path='/admin' element={<Admin/>}>
                     <Route index element={<AdminLoginRequired><AdminPanel/></AdminLoginRequired>}></Route>

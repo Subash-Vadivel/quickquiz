@@ -1,0 +1,127 @@
+.colorNav{
+    background-color: white;
+}
+.navLink{
+    color:black;
+    font-size: large;
+    position: relative;
+   margin-left: 10px;
+   margin-right: 10px;
+
+}
+.navLink:hover
+{
+    color: #7F22CF;
+
+}
+.navLink:before
+{  
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 2px;
+    bottom: 0;
+    margin: -5px 0;
+
+    background-color:#7F22CF; /*Follow your text color*/
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.4s ease-in-out 0s;
+}
+.navLink:hover:before{
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+.navLinkop{
+    color:#7F22CF;
+    font-size: large;
+    margin-right: 30px;
+    
+}
+
+.nav-linkop:hover{
+    color:black;
+}
+.nav-drop-down{
+    color:black;
+}
+.nav-drop-down:hover{
+    color:#7F22CF;
+}
+.logoWrapper{
+    width: 100px;
+    text-align: center;
+}
+.profile-pic{
+    background-color:red;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+.profile-pic >img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.dropdown-content{
+    display: none;
+    position: absolute;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    min-width: 160px;
+    
+    background-color: #f9f9f9;
+}
+.dropdown-content>a{
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 12px 16px;
+    text-align: center;
+    font-weight: 400;
+    background-color: #f9f9f9;
+}
+
+.dropdown-content>button{
+    text-decoration: none;
+    background-color:  #f9f9f9;
+    border: 0;
+    color: black;
+    display: block;
+    width: 100%;
+    padding: 12px 16px;
+    text-align: center;
+    font-weight: 400;
+}
+.dropdown-content a:hover 
+{background-color: #f1f1f1}
+
+.dropdown-content button:hover 
+{background-color: #f1f1f1}
+.profile-pic:hover .dropdown-content{
+    display: block;
+}
+.logoWrapper >img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.loginBtn{
+    text-decoration: none;
+    color:red;
+    font-size:large;
+    margin-right: 30px;
+}
+.loginBtn:hover{
+    color: black;
+}
+.routeBtn{
+    text-decoration: none;
+    color:black;
+    font-size:large;
+    margin-right: 15px;
+}
+.routeBtn:hover{
+    color: red;
+}
+/* finish */

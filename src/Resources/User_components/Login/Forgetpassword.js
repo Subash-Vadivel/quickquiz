@@ -1,5 +1,4 @@
 import React from 'react'
-import '../../User_css/styles.css'
 import { useState } from 'react'
 import { OtpGeneration } from './OtpGeneration'
 import { Resetpassword } from './Resetpassword'

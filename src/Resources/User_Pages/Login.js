@@ -1,7 +1,5 @@
 import React from 'react'
 import { useState } from 'react'
-import '../User_css/styles.css'
-import '../User_css/styles2.css'
 import image from './asset/loginImage1.jpg'
 import { Forgetpassword } from '../User_components/Login/Forgetpassword'
 import { Signin } from '../User_components/Login/Signin'

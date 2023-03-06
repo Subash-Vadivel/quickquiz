@@ -1,8 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import '../../User_css/styles.css'
-import '../../User_css/styles2.css'
 import axiosPrivate from '../../../Api/axiosPrivate'
 import style from '../../User_css/auth.module.css';
 import {Row,Col} from 'react-bootstrap'

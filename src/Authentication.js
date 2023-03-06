@@ -3,6 +3,7 @@ import React, { useContext,  useState } from 'react'
 export const userStatus=React.createContext();
 export default function Authentication(props) {
     const [user,setUser]=useState(localStorage.getItem('user'));
+    const[details,setDetails]=useState(localStorage.getItem('details'))
     const login=(data)=>{
       
       localStorage.setItem('user',data.firstName);
