@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Col, Row, Container, FloatingLabel, Form, Button, Alert } from 'react-bootstrap';
 import { toast, ToastContainer } from 'react-toastify';
+import axiosPrivate from '../../Api/axiosPrivate';
 import style from '../Admin_css/question.module.css'
 export default function QuestionSet() {
     const [currentPage,setCurrentPage]=useState(1);
@@ -12,8 +13,8 @@ export default function QuestionSet() {
         {
           qnno:1,
           question:"",
-          option:[""],
-          answer:"",
+          choises:[""],
+          correctAnswer:"",
           mark:"",
           explanation:"",
           mode:""
@@ -42,8 +43,16 @@ export default function QuestionSet() {
     const [alertMsg, setAlertMsg] = useState('');
     const[qncnt,setqncnt]=useState('');
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async(event) => {
         event.preventDefault();
+        // await axiosPrivate('/question/new',{
+        //   topic:qsettitle,
+        //   category:category,
+        //   questions:details.q,
+        //   type:qdifficulty,
+        //   time:time,
+        //   mode:
+        // })
         
     };
 
@@ -51,20 +60,24 @@ export default function QuestionSet() {
 
     const save=(con)=>{
      
-        if( details.q[currentPage-1].question==="" ||  details.q[currentPage-1].option.length<2 || details.q[currentPage-1].answer==="" || details.q[currentPage-1].mark==="" || details.q[currentPage-1].mode==="")
+        if( details.q[currentPage-1].question==="" ||  details.q[currentPage-1].choises.length<2 || details.q[currentPage-1].correctAnswer==="" || details.q[currentPage-1].mark==="" || details.q[currentPage-1].mode==="")
         {
               toast.error("Please Check the data");
+              
         
               return;
         }
+        if(details.q[currentPage-1].explanation==="")
+            details.q[currentPage-1].explanation="none";
       
+            setTotalMark(totalmark+details.q[currentPage-1].mark)
       if(con)
       {
         details.q.push({
           qnno:details.q.length+1,
           question:"",
-          option:[""],
-          answer:"",
+          choises:[""],
+          correctAnswer:"",
           mark:"",
           explanation:"",
           mode:""
@@ -130,7 +143,7 @@ export default function QuestionSet() {
                     <Row>
                       <Col  sm={12} sx={12} md={3} lg={3} xl={3} xxl={3}>
                       <center>
-                         <button className={style.qbtn}>Questions Added : {qncnt}</button>
+                         <button className={style.qbtn}>Questions : {details.q.length-1}</button>
                          </center>
              
                       </Col>
@@ -146,7 +159,7 @@ export default function QuestionSet() {
                       </Col>
                       <Col  sm={12} sx={12} md={3} lg={3} xl={3} xxl={3}>
                         <center>
-                         <button className={style.qbtn}>Publish</button>
+                         <button className={style.qbtn} onClick={handleSubmit}>Publish</button>
                          </center>
                       </Col>
                     </Row>
@@ -177,9 +190,9 @@ export default function QuestionSet() {
                                     </Form.Group>
                                     <Form.Group className="mt-3">
                                         <Form.Label>Correct Answer</Form.Label>
-                                        <Form.Control as="select" value={details.q[currentPage-1].answer} onChange={(e) =>{details.q[currentPage-1].answer=e.target.value;;setDetails({...details})}} required>
-                                            {details.q[currentPage-1].option.map((option, index) => (
-                                                <option key={index} value={details.q[currentPage-1].option[index]}>
+                                        <Form.Control as="select" value={details.q[currentPage-1].correctAnswer} onChange={(e) =>{details.q[currentPage-1].correctAnswer=e.target.value;;setDetails({...details})}} required>
+                                            {details.q[currentPage-1].choises.map((option, index) => (
+                                                <option key={index} value={details.q[currentPage-1].choises[index]}>
                                                     {`Option ${index + 1}`}
                                                 </option>
                                             ))}
@@ -237,7 +250,7 @@ export default function QuestionSet() {
                           {
                             save(true);
                           }
-                         }}>Save and Next</button>
+                         }}>{currentPage<details.q.length?"Update And Next":"Save And Next"}</button>
                          </center>):(<></>)}
                       </Col>
                       <Col  sm={12} sx={12} md={3} lg={3} xl={3} xxl={3}>
