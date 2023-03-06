@@ -45,14 +45,15 @@ export default function QuestionSet() {
 
     const handleSubmit = async(event) => {
         event.preventDefault();
-        // await axiosPrivate('/question/new',{
-        //   topic:qsettitle,
-        //   category:category,
-        //   questions:details.q,
-        //   type:qdifficulty,
-        //   time:time,
-        //   mode:
-        // })
+        // details.q.splice(datails.q.length);
+        await axiosPrivate('/question/new',{
+          topic:qsettitle,
+          category:category,
+          questions:details.q,
+          type:qdifficulty,
+          time:time,
+          mode:mode
+        })
         
     };
 
