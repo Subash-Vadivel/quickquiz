@@ -1,0 +1,14 @@
+.center-form{
+    background-color: rgba(240, 240, 246, 0.5);
+    padding: 30px 30px;
+    border-radius: 10px;
+    }
+.guest{
+    color:red;
+    cursor: pointer;
+}
+
+.form-button{
+    color: aliceblue;
+    background-color: red;
+}

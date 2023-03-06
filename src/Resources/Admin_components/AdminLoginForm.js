@@ -2,6 +2,7 @@ import React,{useState,useRef,useEffect} from 'react'
 import styleloginform from '../Admin_css/adminloginform.module.css'
 import { useAuth } from '../../Authentication';
 import axiosPrivate from '../../Api/axiosPrivate';
+import { toast,ToastContainer } from 'react-toastify';
 export default function AdminLoginForm(props) {
   const inputRef=useRef(null);
   useEffect(()=>{
@@ -22,7 +23,7 @@ export default function AdminLoginForm(props) {
   const submitform=async(e)=>{
 e.preventDefault();
      await axiosPrivate.post('/accounts/login',{user:userid,
-     password:password}).then((res)=>{auth.login(res.data.details);props.setStatus("success")}).catch((err)=>{console.log("catch : "+err)});
+     password:password}).then((res)=>{toast.success('Logged In');setTimeout(()=>{auth.login(res.data.details);props.setStatus("success"); },5000)}).catch((err)=>{toast.warning("Invalid Credential!")});
     //  auth.login(res.data.jwt_token);props.setStatus("success")
   }
   return (
@@ -60,6 +61,7 @@ e.preventDefault();
             props.setStatus("forgot")
           }}>
             Forgot password ?</span>
+            <ToastContainer/>
         </div>
       </form>
     </div>

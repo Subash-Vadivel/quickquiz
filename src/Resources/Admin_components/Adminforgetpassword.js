@@ -2,6 +2,8 @@ import React from 'react'
 import { useState } from 'react';
 import styleloginform from '../Admin_css/adminloginform.module.css'
 import axiosPrivate from '../../Api/axiosPrivate';
+import { toast, ToastContainer } from 'react-toastify';
+
 export default function Adminforgetpassword(props) {
   const [email,setEmail]=useState('');
   const [otp,setOtp]=useState();
@@ -15,7 +17,7 @@ export default function Adminforgetpassword(props) {
 
   try{
     await axiosPrivate.post('/accounts/verify-RP-otp',{
-      email:email,otp:otp}).then((res)=>{setsuccessOTP(true)}).catch((err)=>{setWarning("Enter Valid OTP")});
+      email:email,otp:otp}).then((res)=>{setsuccessOTP(true)}).catch((err)=>{toast.error("Enter Valid OTP")});
             }
   catch(err)
   {
@@ -29,7 +31,7 @@ export default function Adminforgetpassword(props) {
 
     try{
     await axiosPrivate.post('/accounts/forgot-password',{
-    email:email}).then((res)=>{setVerification(true)}).catch((err)=>{setWarning("Enter Valid Email")});
+    email:email}).then((res)=>{toast.success("OTP Sent");setTimeout(()=>{setVerification(true);},2000)}).catch((err)=>{setWarning("Enter Valid Email")});
     }
     catch(err)
     {
@@ -43,7 +45,7 @@ const submitnewpassword=async(e)=>{
   try
   {
     await axiosPrivate.post('/accounts/change-password',{
-      email:email,password:NewPassword}).then((res)=>{props.setStatus("pending");}).catch((err)=>{setWarning("Some Thing Went Wrong Try Again")});
+      email:email,password:NewPassword}).then((res)=>{toast.success("Password Changed Successfully");setTimeout(()=>{props.setStatus("pending")},2000)}).catch((err)=>{setWarning("Some Thing Went Wrong Try Again")});
 }
 catch(err)
 {
@@ -74,6 +76,7 @@ const output=()=> {
               <button  className="btn btn-primary" onClick={submitOTP}>
                 Submit
               </button>
+              <ToastContainer/>
             </div>
             
           </div>
@@ -103,7 +106,8 @@ const output=()=> {
                 Sent OTP
               </button>
             </div>
-            
+            <ToastContainer/>
+
           </div>
         </form>
       </div>
@@ -139,6 +143,7 @@ const resetform=()=>{
         <button  className="btn btn-primary" onClick={submitnewpassword}>
           Reset
         </button>
+        <ToastContainer/>
       </div>
       
     </div>

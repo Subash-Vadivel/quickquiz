@@ -3,10 +3,12 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../../User_css/styles.css'
 import '../../User_css/styles2.css'
-import image from '../../User_Pages/asset/signupImage.jpg'
-import { Forgetpassword } from './Forgetpassword'
 import axiosPrivate from '../../../Api/axiosPrivate'
-export function Signin() {
+import style from '../../User_css/auth.module.css';
+import {Row,Col} from 'react-bootstrap'
+import { Button,Form } from 'react-bootstrap'
+import { toast, ToastContainer } from 'react-toastify'
+export function Signin(props) {
   const [email,setEmail]=useState()
   const [password,setPassword]=useState()
   const [cpassword,setcPassword]=useState()
@@ -26,11 +28,96 @@ phno:ph,
 password:password,
 firstName:fn,
 lastName:ln}).then((res)=>{
-  navigate('/')
-}).catch((err)=>{console.log(err)});
+  toast.success("Verify Email To Activate Account ")
+  setTimeout(()=>{navigate('/')},4000)
+  
+}).catch((err)=>{toast.error("Something Went Wrong Try Again!")});
     
   }
   return (
+    <>
+     <div className='center-form'>
+                <h2>Register</h2><br></br>
+                      <Form onSubmit={submit}>
+                      <Form.Group controlId="formBasicfName">
+                        <Row>
+                          <Col>
+                        <Form.Label>First Name</Form.Label>
+                        <Form.Control
+                          type="text"
+                          placeholder="First Name"
+                          value={fn}
+                          onChange={(event) => setFn(event.target.value)}
+                        /></Col>
+                        <Col>
+                         <Form.Label>Last Name</Form.Label>
+
+                        <Form.Control
+                          type="text"
+                          placeholder="Last Name"
+                          value={ln}
+                          onChange={(event) => setLn(event.target.value)}
+                        />
+                        </Col>
+                        </Row>
+                      </Form.Group><br></br>
+                
+                      <Form.Group controlId="formBasicEmail">
+                        <Form.Label>Email address</Form.Label>
+                        <Form.Control
+                          type="email"
+                          placeholder="Enter email"
+                          value={email}
+                          onChange={(event) => setEmail(event.target.value)}
+                        />
+                      </Form.Group><br/>
+
+
+                      <Form.Group controlId="formBasicPh">
+                        <Form.Label>Phone No</Form.Label>
+                        <Form.Control
+                          type="text"
+                          placeholder="Enter Mobile Number"
+                          value={ph}
+                          onChange={(event) => setPh(event.target.value)}
+                        />
+                      </Form.Group><br/>
+                
+                      <Form.Group controlId="formBasicPassword">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control
+                          type="password"
+                          placeholder="Password"
+                          value={password}
+                          onChange={(event) => setPassword(event.target.value)}
+                        />
+                      </Form.Group><br/>
+                
+                      <Form.Group controlId="formBasicConfirmPassword">
+                        <Form.Label>Confirm Password</Form.Label>
+                        <Form.Control
+                          type="password"
+                          placeholder="Confirm Password"
+                          value={cpassword}
+                          onChange={(event) => setcPassword(event.target.value)}
+                        />
+                      </Form.Group><br/>
+                      <ToastContainer/>
+                         <center>
+                      <Button variant="primary" type="submit">
+                        Register
+                      </Button></center><br/>
+                      <p>Have an Account ?<span className={style.guest} onClick={()=>{props.setValid(false)}}> Sign In</span></p>
+                    </Form>
+                    
+                  </div>
+  
+
+
+
+
+
+{/* 
     <div className='fullcontainer'>
       <div className='subcontainer'>
       <div className='left'>
@@ -68,13 +155,10 @@ lastName:ln}).then((res)=>{
         </form>
         <p className='validation' id="valid">password not matched</p>
         <button className='register' onClick={submit}>Register</button>
-        </div>
-        {/* <div className='register'> */}
-          
-        {/* </div> */}
+        </div>          
       </div>
       </div>
-      {/* </div> */}
-    </div>
+    </div> */}
+    </>
   )
 }

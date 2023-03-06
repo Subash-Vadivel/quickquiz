@@ -10,6 +10,7 @@ import AdminPanel from './Resources/Admin_Pages/AdminPanel';
 import AdminLoginRequired from './Resources/Admin_Pages/AdminLoginRequired';
 import Base from './Resources/User_Pages/Base';
 import UserLoginRequired from './Resources/User_components/UserLoginRequired';
+import 'react-toastify/dist/ReactToastify.css';
 import { Login } from './Resources/User_Pages/Login';
 function App() {
   return (

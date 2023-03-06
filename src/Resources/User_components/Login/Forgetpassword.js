@@ -4,6 +4,9 @@ import { useState } from 'react'
 import { OtpGeneration } from './OtpGeneration'
 import { Resetpassword } from './Resetpassword'
 import axiosPrivate from '../../../Api/axiosPrivate';
+import { Form,Button, Toast } from 'react-bootstrap'
+import style from '../../User_css/auth.module.css';
+import { toast, ToastContainer } from 'react-toastify'
 // import { Login } from './Login'
 export function Forgetpassword() {
 
@@ -11,23 +14,34 @@ export function Forgetpassword() {
     const [valid,setValid]=useState(false);
     const notify=async(e)=>{
         e.preventDefault();
-        await axiosPrivate.post('/accounts/forgot-password',{email:email}).then((res)=>{setValid(true)}).catch((err)=>{console.log(err)})
-
-             
+        await axiosPrivate.post('/accounts/forgot-password',{email:email}).then((res)=>{toast.success("OTP Sent"); setTimeout(()=>{setValid(true);},3000)    }).catch((err)=>{toast.error("Please Check Your Email !")})            
     }
   return (
     (valid===false)?
-    <div className='right'>
-        <div className='sublogin'>
-          <i className='fas fa-user'></i>
-          <h1>Reset Password</h1>
-          <label>Email</label>
-          <br />
-          <input type="text" maxLength={40} value={email} required onChange={(e)=>{setEmail(e.target.value)}}/>
-          <br />
-          <button className='emailbutton' onClick={notify}>Verify</button>
-        </div>
-      </div> : <OtpGeneration value={email}/>
+
+    <>
+  <div className={style.centerform}>
+                <h2>Forget Password</h2><br></br><br></br>
+                      <Form onSubmit={notify}>
+                      <Form.Group controlId="formBasicEmail">
+                        <Form.Label>Email address</Form.Label>
+                        <Form.Control
+                          type="email"
+                          placeholder="Enter email"
+                          value={email}
+                          onChange={(event) => setEmail(event.target.value)}
+                        />
+                      </Form.Group><br/>
+                <ToastContainer/>
+                      <center>
+                      <Button variant="primary" type="submit">
+                        Send OTP
+                      </Button>
+                      </center><br/>
+                    </Form>
+                    </div>
+      </>
+      : <OtpGeneration value={email}/>
       
   )
 }
