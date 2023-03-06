@@ -2,6 +2,11 @@ import axios from './Api/axiosPrivate'
 import React, { useContext,  useState } from 'react'
 export const userStatus=React.createContext();
 export default function Authentication(props) {
+<<<<<<< HEAD
+    const [user,setUser] = useState(null);
+    const login=(name)=>{
+        setUser(name);
+=======
     const [user,setUser]=useState(localStorage.getItem('user'));
     const login=(data)=>{
       
@@ -9,6 +14,7 @@ export default function Authentication(props) {
       localStorage.setItem('details',JSON.stringify(data));
         setUser(data.firstName);
         console.log(data.firstName);
+>>>>>>> 05d3c38950393639b760af57ff7cd28840923e3e
     }
     const logout=async()=>{
 
