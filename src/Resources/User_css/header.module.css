@@ -22,7 +22,6 @@
     height: 2px;
     bottom: 0;
     margin: -5px 0;
-
     background-color:#7F22CF; /*Follow your text color*/
     visibility: hidden;
     transform: scaleX(0);

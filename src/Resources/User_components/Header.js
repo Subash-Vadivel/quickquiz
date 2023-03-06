@@ -24,7 +24,7 @@ function Header(props)
                   <Navbar.Collapse id='responsive-navbar-nav'>
                         <Nav className='ms-auto'>
                               <Nav.Link className={style.navLink}  onClick={()=>{navigate('/')}}>Home</Nav.Link>
-                              <Nav.Link className={style.navLink}  onClick={()=>{navigate('practice')}} >Practice</Nav.Link>
+                              <Nav.Link className={style.navLink}  onClick={()=>{navigate('/practice')}} >Practice</Nav.Link>
                               <Nav.Link className={style.navLink} onClick={()=>{navigate('compete')}}>Compete</Nav.Link>
                               <Nav.Link className={style.navLink} onClick={()=>{navigate('profile')}}>Profile</Nav.Link>
                               <Nav.Link className={style.navLink} onClick={auth.logout}>Log Out</Nav.Link>                           
