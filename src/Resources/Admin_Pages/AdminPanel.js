@@ -1,9 +1,11 @@
 import React from 'react'
 import { useAuth } from '../../Authentication'
+import Sidebar from '../Admin_components/Sidebar';
 export default function AdminPanel() {
   const auth=useAuth();
   return (
-    <div>
-      AdminPanel Hello <button onClick={auth.logout}>Log out</button></div>
+    <>
+    <Sidebar/>
+    </>
   )
 }
