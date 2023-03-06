@@ -45,7 +45,7 @@ export default function QuestionSet() {
 
     const handleSubmit = async(event) => {
         event.preventDefault();
-        // details.q.splice(datails.q.length);
+        details.q.splice(details.q.length-1,1);
         await axiosPrivate('/question/new',{
           topic:qsettitle,
           category:category,
@@ -53,7 +53,7 @@ export default function QuestionSet() {
           type:qdifficulty,
           time:time,
           mode:mode
-        })
+        }).then((res)=>{console.log(res)}).catch((err)=>{console.log(err)})
         
     };
 
