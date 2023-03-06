@@ -180,14 +180,14 @@ export default function QuestionSet() {
                                     </Form.Group>
                                     <Form.Group className="mt-3">
                                         <Form.Label>Options</Form.Label>
-                                        {details.q[currentPage-1].option.map((option, index) => (
+                                        {details.q[currentPage-1].choises.map((option, index) => (
                                           <div style={{ display: "flex" }} key={index}>
-                                            <Form.Control className={style.options} type="text" placeholder={`Option ${index + 1}`} value={option} onChange={(e) => {details.q[currentPage-1].option[index]=e.target.value;setDetails({...details})}} />
-                                            <button className={style.add} onClick={()=>{details.q[currentPage-1].option.splice(index,1);setDetails({...details})}}>X</button>
+                                            <Form.Control  key={index} className={style.options} type="text" placeholder={`Option ${index + 1}`} value={option} onChange={(e) => {details.q[currentPage-1].choises[index]=e.target.value;setDetails({...details})}} />
+                                            <button className={style.add} onClick={()=>{details.q[currentPage-1].choises.splice(index,1);setDetails({...details})}}>X</button>
                                        
                                            </div>
                                         ))}
-                                        <button className={style.add} onClick={()=>{details.q[currentPage-1].option.push("");setDetails({...details})}}>+</button>
+                                        <button className={style.add} onClick={()=>{details.q[currentPage-1].choises.push("");setDetails({...details})}}>+</button>
                                     </Form.Group>
                                     <Form.Group className="mt-3">
                                         <Form.Label>Correct Answer</Form.Label>
