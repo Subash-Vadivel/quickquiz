@@ -6,7 +6,6 @@ import style from '../Admin_css/question.module.css'
 export default function QuestionSet() {
     const [currentPage,setCurrentPage]=useState(1);
     const [flag,setFlag]=useState(false);
-    const [options, setOptions] = useState(['', '', '', '', '']);
     const [details,setDetails]=useState(
       {
        q:[
@@ -35,25 +34,21 @@ export default function QuestionSet() {
 
 
 //Individual Data
-    const [correctAnswer, setCorrectAnswer] = useState('');
-    const [mark, setMark] = useState(1);
-    const [explanation, setExplanation] = useState('');
-    const [mode, setMode] = useState('easy');
-    const [showAlert, setShowAlert] = useState(false);
-    const [alertMsg, setAlertMsg] = useState('');
-    const[qncnt,setqncnt]=useState('');
+    // const [mode, setMode] = useState('easy');
 
     const handleSubmit = async(event) => {
         event.preventDefault();
-        // details.q.splice(details.q.length-1,1);
-        // await axiosPrivate('/question/new',{
-        //   topic:qsettitle,
-        //   category:category,
-        //   questions:details.q,
-        //   type:qdifficulty,
-        //   time:time,
-        //   mode:mode
-        // }).then((res)=>{console.log(res)}).catch((err)=>{console.log(err)})
+        details.q.splice(details.q.length-1,1);
+        const obj=new Object({
+          topic:qsettitle,
+          category:category,
+          questions:[...details.q],
+          type:qdifficulty,
+          time:time,
+          mode:qdifficulty
+        })
+        console.log(obj);
+        await axiosPrivate('/question/new',obj).then((res)=>{console.log(res)}).catch((err)=>{console.log(err)})
         
     };
 
@@ -172,7 +167,6 @@ export default function QuestionSet() {
                           <Col sm={1} md={2} lg={3}></Col>
                             <Col xs={12} sm={10} md={8} lg={6}>
                                 <h4 className="mb-3">Add Question</h4>
-                                {showAlert && <Alert variant="danger">{alertMsg}</Alert>}
                                 <Form onSubmit={handleSubmit}>
                                     <Form.Group className="mt-3">
                                         <Form.Label>Question</Form.Label>
