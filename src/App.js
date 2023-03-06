@@ -22,8 +22,7 @@ function App() {
               <Route index element={<UserLoginRequired><Home/></UserLoginRequired>}/>
               <Route path='login' element={<Login/>}/>
 
-                
-
+            
             </Route>
           
            <Route path='/admin' element={<Admin/>}>
