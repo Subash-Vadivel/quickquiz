@@ -14,7 +14,7 @@ export default function QuestionSet() {
           question:"",
           choices:[""],
           correctAnswer:1,
-          mark:0,
+          mark:"1",
           explanation:"",
           mode:""
          }
@@ -30,7 +30,7 @@ export default function QuestionSet() {
     const[time,setTime]=useState(0);
     const [category,setCategory]=useState('');
     const [qdifficulty,setqDifficulty]=useState('');
-   const [testtype,setTesttype]=useState('');
+   const [testtype,setTesttype]=useState('test');
 
 
 //Individual Data
