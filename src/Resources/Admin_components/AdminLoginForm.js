@@ -1,7 +1,7 @@
 import React,{useState,useRef,useEffect} from 'react'
 import styleloginform from '../Admin_css/adminloginform.module.css'
 import { useAuth } from '../../Authentication';
-import axiosPrivate from '../../Api/axiosPrivate';
+import {axiosPrivate} from '../../Api/axiosPrivate';
 import { toast,ToastContainer } from 'react-toastify';
 export default function AdminLoginForm(props) {
   const inputRef=useRef(null);
