@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Col, Row, Container, FloatingLabel, Form, Button, Alert } from 'react-bootstrap';
+import { Col, Row, Container, FloatingLabel, Form } from 'react-bootstrap';
 import { toast, ToastContainer } from 'react-toastify';
 import axiosPrivate from '../../Api/axiosPrivate';
 import style from '../Admin_css/question.module.css'
+import {AiOutlineCloseCircle} from 'react-icons/ai';
 export default function QuestionSet() {
     const [currentPage,setCurrentPage]=useState(1);
     const [flag,setFlag]=useState(false);
@@ -10,9 +11,8 @@ export default function QuestionSet() {
       {
        q:[
         {
-          qnno:1,
           question:"",
-          choises:[""],
+          choices:[""],
           correctAnswer:"",
           mark:"",
           explanation:"",
@@ -27,7 +27,7 @@ export default function QuestionSet() {
  //Over All Data For Question Set
     const [qsettitle,setQsettitle]=useState('');
     const [totalmark, setTotalMark] = useState('');
-    const[time,setTime]=useState('');
+    const[time,setTime]=useState(0);
     const [category,setCategory]=useState('');
     const [qdifficulty,setqDifficulty]=useState('');
    const [testtype,setTesttype]=useState('');
@@ -41,7 +41,7 @@ export default function QuestionSet() {
         details.q.splice(details.q.length-1,1);
         const obj=new Object({
           topic:qsettitle,
-          category:category,
+          categoryName:category,
           questions:[...details.q],
           type:qdifficulty,
           time:time,
@@ -56,11 +56,9 @@ export default function QuestionSet() {
 
     const save=(con)=>{
      
-        if( details.q[currentPage-1].question==="" ||  details.q[currentPage-1].choises.length<2 || details.q[currentPage-1].correctAnswer==="" || details.q[currentPage-1].mark==="" || details.q[currentPage-1].mode==="")
+        if( details.q[currentPage-1].question==="" ||  details.q[currentPage-1].choices.length<2 || details.q[currentPage-1].correctAnswer==="" || details.q[currentPage-1].mark==="" || details.q[currentPage-1].mode==="")
         {
               toast.error("Please Check the data");
-              
-        
               return;
         }
         if(details.q[currentPage-1].explanation==="")
@@ -70,9 +68,8 @@ export default function QuestionSet() {
       if(con)
       {
         details.q.push({
-          qnno:details.q.length+1,
           question:"",
-          choises:[""],
+          choices:[""],
           correctAnswer:"",
           mark:"",
           explanation:"",
@@ -174,20 +171,19 @@ export default function QuestionSet() {
                                     </Form.Group>
                                     <Form.Group className="mt-3">
                                         <Form.Label>Options</Form.Label>
-                                        {details.q[currentPage-1].choises.map((option, index) => (
+                                        {details.q[currentPage-1].choices.map((option, index) => (
                                           <div style={{ display: "flex" }} key={index}>
-                                            <Form.Control  key={index} className={style.options} type="text" placeholder={`Option ${index + 1}`} value={option} onChange={(e) => {details.q[currentPage-1].choises[index]=e.target.value;setDetails({...details})}} />
-                                            <button className={style.add} onClick={()=>{details.q[currentPage-1].choises.splice(index,1);setDetails({...details})}}>X</button>
-                                       
+                                            <Form.Control  key={index} className={style.options} type="text" placeholder={`Option ${index + 1}`} value={option} onChange={(e) => {details.q[currentPage-1].choices[index]=e.target.value;setDetails({...details})}} />
+                                       <AiOutlineCloseCircle size={30} onClick={()=>{details.q[currentPage-1].choices.splice(index,1);setDetails({...details})}}/>
                                            </div>
                                         ))}
-                                        <button className={style.add} onClick={()=>{details.q[currentPage-1].choises.push("");setDetails({...details})}}>+</button>
+                                        <button className={style.add} onClick={()=>{details.q[currentPage-1].choices.push("");setDetails({...details})}}>+</button>
                                     </Form.Group>
                                     <Form.Group className="mt-3">
                                         <Form.Label>Correct Answer</Form.Label>
                                         <Form.Control as="select" value={details.q[currentPage-1].correctAnswer} onChange={(e) =>{details.q[currentPage-1].correctAnswer=e.target.value;;setDetails({...details})}} required>
-                                            {details.q[currentPage-1].choises.map((option, index) => (
-                                                <option key={index} value={details.q[currentPage-1].choises[index]}>
+                                            {details.q[currentPage-1].choices.map((option, index) => (
+                                                <option key={index} value={details.q[currentPage-1].choices[index]}>
                                                     {`Option ${index + 1}`}
                                                 </option>
                                             ))}
