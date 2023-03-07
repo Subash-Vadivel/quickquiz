@@ -46,7 +46,7 @@ function Footer()
         </Row>
     </Container>
     <Container fluid className={style.footerEnd}>
-        <p className={style.footerEndTxt}>© 2022 Team Alpha. All rights reserved.</p>
+        <p className={style.footerEndTxt}>© 2023 Team Alpha. All rights reserved.</p>
     </Container>
     </>);
 }
