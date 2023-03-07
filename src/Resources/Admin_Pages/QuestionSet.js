@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Col, Row, Container, FloatingLabel, Form } from 'react-bootstrap';
 import { toast, ToastContainer } from 'react-toastify';
-import axiosPrivate from '../../Api/axiosPrivate';
+import {axiosPrivate} from '../../Api/axiosPrivate';
 import style from '../Admin_css/question.module.css'
 import {AiOutlineCloseCircle} from 'react-icons/ai';
 export default function QuestionSet() {
@@ -13,8 +13,8 @@ export default function QuestionSet() {
         {
           question:"",
           choices:[""],
-          correctAnswer:"",
-          mark:"",
+          correctAnswer:1,
+          mark:0,
           explanation:"",
           mode:""
          }
@@ -39,9 +39,8 @@ export default function QuestionSet() {
     const handleSubmit = async(event) => {
         event.preventDefault();
         details.q.splice(details.q.length-1,1);
-       
-        await axiosPrivate('/question/new',
-        {
+        
+        await axiosPrivate.post('/question/new',{
             topic:qsettitle,
             categoryName:category,
             questions:[...details.q],
@@ -49,6 +48,7 @@ export default function QuestionSet() {
             time:time,
             mode:qdifficulty
           }
+        
         ).then((res)=>{console.log(res)}).catch((err)=>{console.log(err)})
         
     };
@@ -182,9 +182,9 @@ export default function QuestionSet() {
                                     </Form.Group>
                                     <Form.Group className="mt-3">
                                         <Form.Label>Correct Answer</Form.Label>
-                                        <Form.Control as="select" value={details.q[currentPage-1].correctAnswer} onChange={(e) =>{details.q[currentPage-1].correctAnswer=e.target.value;;setDetails({...details})}} required>
+                                        <Form.Control as="select" value={details.q[currentPage-1].correctAnswer} onChange={(e) =>{details.q[currentPage-1].correctAnswer=(e.target.value);;setDetails({...details})}} required>
                                             {details.q[currentPage-1].choices.map((option, index) => (
-                                                <option key={index} value={details.q[currentPage-1].choices[index]}>
+                                                <option key={index} value={index+1}>
                                                     {`Option ${index + 1}`}
                                                 </option>
                                             ))}
