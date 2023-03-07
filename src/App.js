@@ -15,7 +15,6 @@ import { Login } from './Resources/User_Pages/Login';
 import DashBoard from './Resources/Admin_Pages/DashBoard';
 import QuestionSet from './Resources/Admin_Pages/QuestionSet';
 import Practice from './Resources/User_Pages/Practice';
-import Pagenotfound from './Pagenotfound';
 function App() {
   return (
     <>
@@ -38,7 +37,6 @@ function App() {
            </Route>
            
            <Route path='admin/login' element={<AdminLogin/>}/>
-           <Route path='*' element={<Pagenotfound/>}/>
         </Routes>
        </Authentication>
 
