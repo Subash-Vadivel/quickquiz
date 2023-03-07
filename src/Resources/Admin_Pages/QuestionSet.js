@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Col, Row, Container, FloatingLabel, Form } from 'react-bootstrap';
 import { toast, ToastContainer } from 'react-toastify';
-import {axiosPrivate} from '../../Api/axiosPrivate';
+import axios from '../../Api/axiosPrivate';
 import style from '../Admin_css/question.module.css'
 import {AiOutlineCloseCircle} from 'react-icons/ai';
 export default function QuestionSet() {
@@ -40,14 +40,14 @@ export default function QuestionSet() {
         event.preventDefault();
         details.q.splice(details.q.length-1,1);
         
-        await axiosPrivate.post('/question/new',{
+        await axios.post('/question/new',{
             topic:qsettitle,
             categoryName:category,
             questions:[...details.q],
             type:qdifficulty,
             time:time,
             mode:qdifficulty
-          }
+          },{withCredentials:true}
         
         ).then((res)=>{console.log(res)}).catch((err)=>{console.log(err)})
         

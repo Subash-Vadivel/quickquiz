@@ -3,7 +3,7 @@ import { useState } from 'react'
 import image from './asset/loginImage1.jpg'
 import { Forgetpassword } from '../User_components/Login/Forgetpassword'
 import { Signin } from '../User_components/Login/Signin'
-import {axiosPrivate} from '../../Api/axiosPrivate'
+import axios from '../../Api/axiosPrivate'
 import { useAuth } from '../../Authentication'
 import { Form,Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
@@ -18,7 +18,7 @@ export function Login() {
   const navigate=useNavigate();
   const submit = async(e) => {
     e.preventDefault();
-    await axiosPrivate.post('/accounts/login',{user:email,password:password}).then((res)=>{
+    await axios.post('/accounts/login',{user:email,password:password},{withCredentials:true}).then((res)=>{
       if(res.data.status==="error")
       {
           toast.warning("Please Verify Email");
