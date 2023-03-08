@@ -1,0 +1,22 @@
+.user-navbar{
+    background: #18354C;;
+}
+.user_brand, .user_list_item{
+    color: white !important;
+}
+.user_brand{
+    font-size: 24px;
+}
+.user_list_item{
+    padding: 0 40px;
+    font-size: 18px;
+}
+.user_btn{
+    background: white !important;
+    border: none;
+    color: #18354C;
+}
+
+.user_navbar_toggle{
+    background: white !important;
+}

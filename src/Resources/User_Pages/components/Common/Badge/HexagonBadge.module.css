@@ -1,0 +1,55 @@
+.hexagonBadge {
+    position: relative;
+    width: 120px;
+    height: 138px;
+    margin: 10px;
+}
+
+.hexagonBadgeContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+    
+}
+
+.courseName {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.completionPercentage {
+    font-size: 14px;
+}
+
+.hexagonBadgeBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.completionCircle {
+    position: absolute;
+    top: -50px;
+    right: -30px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #18354C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-origin: center;
+}
+.completionText{
+    color: white;
+}

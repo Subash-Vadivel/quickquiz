@@ -16,6 +16,7 @@ import DashBoard from './Resources/Admin_Pages/DashBoard';
 import QuestionSet from './Resources/Admin_Pages/QuestionSet';
 import Practice from './Resources/User_Pages/Practice';
 import Test from './Resources/User_Pages/Test';
+import Profile from './Resources/User_Pages/pages/Profile/Profile';
 function App() {
   return (
     <>
@@ -26,6 +27,7 @@ function App() {
               <Route index element={<Home/>}/>
               <Route path='practice' element={<Practice/>}></Route>
               <Route path='test' element={<Test/>}></Route>
+              <Route path='profile' element={<Profile/>}></Route>
 
 
             

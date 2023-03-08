@@ -1,0 +1,39 @@
+.previousTestList {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.previousTestList h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.previousTestList ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.previousTestList li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+}
+
+.previousTestList li:last-of-type {
+    border-bottom: none;
+}
+
+.previousTestList .testName {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.previousTestList .testDate {
+    font-size: 14px;
+    color: #999;
+}
