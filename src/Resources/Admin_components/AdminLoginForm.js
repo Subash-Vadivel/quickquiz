@@ -24,7 +24,7 @@ export default function AdminLoginForm(props) {
 e.preventDefault();
      await axiosPrivate.post('/accounts/login',{user:userid,
      password:password}).then((res)=>{toast.success('Logged In');setTimeout(()=>{auth.login(res.data.details);props.setStatus("success"); },2000)}).catch((err)=>{toast.warning("Invalid Credential!")});
-    //  auth.login(res.data.jwt_token);props.setStatus("success")
+    //  auth.login(res.data.jwt_token);props.setStatus("sucs")
   }
   return (
 <div className={`Auth-form-container ${styleloginform.formWrapper}`}>
