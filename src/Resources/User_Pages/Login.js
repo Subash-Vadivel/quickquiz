@@ -18,7 +18,7 @@ export function Login() {
   const navigate=useNavigate();
   const submit = async(e) => {
     e.preventDefault();
-    await axiosPrivate.post('/accounts/login',{user:email,password:password}).then((res)=>{
+    await axiosPrivate.post('/accounts/login',{user:email,password:password},{withCredentials:true}).then((res)=>{
       if(res.data.status==="error")
       {
           toast.warning("Please Verify Email");

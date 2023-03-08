@@ -15,6 +15,7 @@ import { Login } from './Resources/User_Pages/Login';
 import DashBoard from './Resources/Admin_Pages/DashBoard';
 import QuestionSet from './Resources/Admin_Pages/QuestionSet';
 import Practice from './Resources/User_Pages/Practice';
+import Test from './Resources/User_Pages/Test';
 function App() {
   return (
     <>
@@ -24,6 +25,8 @@ function App() {
             <Route path='/' element={<UserLoginRequired><Base/></UserLoginRequired>}>
               <Route index element={<Home/>}/>
               <Route path='practice' element={<Practice/>}></Route>
+              <Route path='test' element={<Test/>}></Route>
+
 
             
             </Route>
