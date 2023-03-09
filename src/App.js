@@ -34,9 +34,6 @@ function App() {
             </Route>
             <Route path='login' element={<Login/>}/>
             <Route path='/taketest/:id' element={<AutoLayoutExample/>}></Route>
-
-
-          
            <Route path='/admin' element={<AdminLoginRequired><Admin/></AdminLoginRequired>}>
                     <Route index element={<DashBoard/>}></Route>
                     <Route path="setquestion" element={<QuestionSet/>}></Route>
