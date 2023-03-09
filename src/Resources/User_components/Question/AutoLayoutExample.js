@@ -75,12 +75,13 @@ function AutoLayoutExample() {
       </Row>
         <br/>
         <footer style={{textAlign:"center"}}>
+        {/* 64056e5e7d2a21b1ff638324 */}
         <Button variant="primary" size="md">
           back
-        </Button>{' '}
+        </Button>
         <Button variant="primary" size="md">
         next
-      </Button>{' '}
+      </Button>
       </footer>
         </Container>
       </Container> 
