@@ -20,11 +20,12 @@ export default function Practice() {
 const navigate = useNavigate()
 const auth=useAuth();
 const [practice,setPractice] = useState([])
+const [filter,setFilter] = useState([])
 
 const load=async()=>{
     
         await axiosPrivate.get('/question').then((res)=>{
-            setPractice(res.data.data.allQuestions);console.log(res.data.data.allQuestions)
+            setPractice(res.data.data.allQuestions); setFilter(res.data.data.allQuestions);console.log(res.data.data.allQuestions)
         }).catch((err)=>{console.log(err)})
     //   setPractice([{"title":"Advanced Python Programming","body":""},{"title":"Java Object Oriented Programming","body":""},
     // {"title":"Introduction to Modern C++","body":""},{"title":"C Language","body":""}])
@@ -112,7 +113,7 @@ return (
     <Container fluid className={practice_styles.maincontainer}>
         <Row className={practice_styles.practicelist}>
         
-              { practice.map((data,index)=> 
+              { filter.map((data,index)=> 
             <Col key={index}>
                 <Card className={practice_styles.questionpaper} >
                     <Card.Title>Topic : {data.topic}</Card.Title>
