@@ -9,12 +9,11 @@ export default function Home() {
   const auth=useAuth();
   const [learn,setLearn] = useState([])
   
-  
   useEffect(()=>{
     setLearn([{"title":"Advanced Python Programming","body":""},{"title":"Java Object Oriented Programming","body":""},
   {"title":"Introduction to Modern C++","body":""},{"title":"C Language","body":""}])
     // axios.get('https://jsonplaceholder.typicode.com/posts').then((res)=>{ setLearn(res.data)})
-  },[learn])
+  },[])
   
   
     return (

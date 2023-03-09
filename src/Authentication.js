@@ -27,7 +27,7 @@ export default function Authentication(props) {
     }
   return (
     <>  
-          <userStatus.Provider value={{user,login,logout}}>
+          <userStatus.Provider value={{user,login,logout,details}}>
             {props.children}
           </userStatus.Provider>
     
