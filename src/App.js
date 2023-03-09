@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Authentication from './Authentication';
-
 import Admin from './Resources/Admin_Pages/Admin'
 import "bootstrap/dist/css/bootstrap.min.css";
 import AdminLogin from './Resources/Admin_Pages/AdminLogin';
