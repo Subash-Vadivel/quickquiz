@@ -33,7 +33,7 @@ function App() {
             
             </Route>
             <Route path='login' element={<Login/>}/>
-            <Route path='/taketest' element={<AutoLayoutExample/>}></Route>
+            <Route path='/taketest/:id' element={<AutoLayoutExample/>}></Route>
 
 
           

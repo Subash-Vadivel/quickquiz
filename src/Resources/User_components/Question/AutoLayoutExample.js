@@ -5,7 +5,18 @@ import style from './sb.module.css'
 import { Form,Button, Container } from 'react-bootstrap';
 import Sidebar from './Sidebar';
 import Timer from './Timer';
+import { useEffect } from 'react';
+import axiosPrivate from '../../../Api/axiosPrivate';
+import { useParams } from 'react-router-dom';
 function AutoLayoutExample() {
+  const id=useParams()
+  const load=async()=>{
+    await axiosPrivate.get()
+  }
+  useEffect(()=>{
+
+  },[])
+
   return (
     <Container fluid className={style.margina}>  
     <Container fluid className={`shadow ${style.header}`}>
@@ -23,9 +34,6 @@ function AutoLayoutExample() {
       </Col>
     </Row>
   </Container>
-    <br/>
-    <br/>
-    <br/>
     <br/>
     
     <Container fluid>
