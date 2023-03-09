@@ -1,15 +1,14 @@
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Form,Button } from 'react-bootstrap';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import style from './sb.module.css'
+import { Form,Button, Container } from 'react-bootstrap';
 import Sidebar from './Sidebar';
 import Timer from './Timer';
 function AutoLayoutExample() {
   return (
-    <div className='container-fluid'>
-    <br/>
-    <>
-    <header className='shadow no-padding'>
+    <Container fluid className={style.margina}>  
+    <Container fluid className={`shadow ${style.header}`}>
     <Row>
       <Col md={10}>
         <h2>&nbsp;Aptitude</h2>
@@ -23,13 +22,13 @@ function AutoLayoutExample() {
         <br/>
       </Col>
     </Row>
-  </header>
+  </Container>
     <br/>
     <br/>
     <br/>
     <br/>
-    </>
-    <>
+    
+    <Container fluid>
     <Row>
     <Col md={4} >
     <div>
@@ -62,8 +61,8 @@ function AutoLayoutExample() {
       next
     </Button>{' '}
     </footer>
-      </>
-    </div>
+      </Container>
+    </Container>
   );
 }
 
