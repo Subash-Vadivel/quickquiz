@@ -2,8 +2,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form,Button } from 'react-bootstrap';
-import Sidebar from '../sidebar';
-import Timer from '../src/timer';
+import Sidebar from './Sidebar';
+import Timer from './Timer';
 function AutoLayoutExample() {
   return (
     <div className='container-fluid'>

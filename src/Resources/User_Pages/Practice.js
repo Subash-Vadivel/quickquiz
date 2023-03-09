@@ -12,6 +12,7 @@ import {
     CDBSidebarMenu,
     CDBSidebarMenuItem,
   } from 'cdbreact';
+import axiosPrivate from '../../Api/axiosPrivate';
 
 
 
@@ -20,11 +21,19 @@ const navigate = useNavigate()
 const auth=useAuth();
 const [practice,setPractice] = useState([])
 
+const load=async()=>{
+    
+        await axiosPrivate.get('/question').then((res)=>{
+            setPractice(res.data.data.allQuestions);console.log(res.data.data.allQuestions)
+        }).catch((err)=>{console.log(err)})
+    //   setPractice([{"title":"Advanced Python Programming","body":""},{"title":"Java Object Oriented Programming","body":""},
+    // {"title":"Introduction to Modern C++","body":""},{"title":"C Language","body":""}])
+      // axios.get('https://jsonplaceholder.typicode.com/posts').then((res)=>{ setLearn(res.data)})
+    
+}
 
 useEffect(()=>{
-  setPractice([{"title":"Advanced Python Programming","body":""},{"title":"Java Object Oriented Programming","body":""},
-{"title":"Introduction to Modern C++","body":""},{"title":"C Language","body":""}])
-  // axios.get('https://jsonplaceholder.typicode.com/posts').then((res)=>{ setLearn(res.data)})
+    load();
 },[])
 
 return (
@@ -103,42 +112,21 @@ return (
     <Container fluid className={practice_styles.maincontainer}>
         <Row className={practice_styles.practicelist}>
         
-            <Col>
+              { practice.map((data,index)=> 
+            <Col key={index}>
                 <Card className={practice_styles.questionpaper} >
-                    <Card.Title>Topic</Card.Title>
+                    <Card.Title>Topic : {data.topic}</Card.Title>
                     <Card.Body>
-                    <Card.Text>Category</Card.Text>
-                    <Card.Text>Total Questions</Card.Text>
-                    <Card.Text>Difficulty Level</Card.Text>
+                    <Card.Text>Category : {data.categoryName}</Card.Text>
+                    <Card.Text>Total Questions : {data.questions.length}</Card.Text>
+                    <Card.Text>Difficulty Level : {data.mode}</Card.Text>
+                    <Card.Text>Time :</Card.Text>
                     <Button onClick={()=>navigate('/id')} variant='success'>Practice</Button>
                     </Card.Body>
                 </Card>
             </Col>
-            <Col>
-            
-            <Card className={practice_styles.questionpaper} >
-                    <Card.Title>Topic</Card.Title>
-                    <Card.Body>
-                    <Card.Text>Category</Card.Text>
-                    <Card.Text>Total Questions</Card.Text>
-                    <Card.Text>Difficulty Level</Card.Text>
-                    <Button onClick={()=>navigate('/id')} variant='success'>Practice</Button>
-                    </Card.Body>
-                </Card>
-            </Col>
-            
-            <Col>
-            
-            <Card className={practice_styles.questionpaper} >
-                    <Card.Title>Topic</Card.Title>
-                    <Card.Body>
-                    <Card.Text>Category</Card.Text>
-                    <Card.Text>Total Questions</Card.Text>
-                    <Card.Text>Difficulty Level</Card.Text>
-                    <Button onClick={()=>navigate('/id')} variant='success'>Practice</Button>
-                    </Card.Body>
-                </Card>
-            </Col>
+        
+               )}
         </Row>
     </Container>
 

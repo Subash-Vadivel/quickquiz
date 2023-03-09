@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {Table} from 'react-bootstrap'
-import './sb.css'
+import style from './sb.module.css'
 import { Button } from 'react-bootstrap';
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,32 +22,32 @@ export default function Sidebar() {
       </div>
       <div class="offcanvas-body">
       <br/>
-      <Table className="my-table">
+      <Table className={style.myTable}>
       <tbody>
         <tr>
-          <td style={{textAlign:"center"}}><Button variant="warning" className='sb'><span>1</span></Button></td>
-          <td style={{textAlign:"center"}}><Button variant="warning" className='sb'><span>2</span></Button></td>
-          <td style={{textAlign:"center"}}><Button variant="warning" className='sb'><span>3</span></Button></td>
+          <td style={{textAlign:"center"}}><Button variant="warning" className={style.sb}><span>1</span></Button></td>
+          <td style={{textAlign:"center"}}><Button variant="warning" className={style.sb}><span>2</span></Button></td>
+          <td style={{textAlign:"center"}}><Button variant="warning" className={style.sb}><span>3</span></Button></td>
         </tr>
         <tr>
-        <td style={{textAlign:"center"}}><Button variant="warning" className='sb'><span>4</span></Button></td>
-        <td style={{textAlign:"center"}}><Button variant="warning" className='sb'><span>5</span></Button></td>
-        <td style={{textAlign:"center"}}><Button variant="warning" className='sb'><span>6</span></Button></td>
+        <td style={{textAlign:"center"}}><Button variant="warning" className={style.sb}><span>4</span></Button></td>
+        <td style={{textAlign:"center"}}><Button variant="warning" className={style.sb}><span>5</span></Button></td>
+        <td style={{textAlign:"center"}}><Button variant="warning" className={style.sb}><span>6</span></Button></td>
         </tr>
         <tr>
-        <td style={{textAlign:"center"}}><Button variant="warning" className='sb'><span>7</span></Button></td>
-          <td style={{textAlign:"center"}}><Button variant="warning" className='sb'><span>8</span></Button></td>
-          <td style={{textAlign:"center"}}><Button variant="warning" className='sb'><span>9</span></Button></td>
+        <td style={{textAlign:"center"}}><Button variant="warning" className={style.sb}><span>7</span></Button></td>
+          <td style={{textAlign:"center"}}><Button variant="warning" className={style.sb}><span>8</span></Button></td>
+          <td style={{textAlign:"center"}}><Button variant="warning" className={style.sb}><span>9</span></Button></td>
         </tr>
         <tr>
-        <td style={{textAlign:"center"}}><Button variant="warning" className='sb'><span>10</span></Button></td>
-        <td style={{textAlign:"center"}}><Button variant="warning" className='sb'><span>11</span></Button></td>
-        <td style={{textAlign:"center"}}><Button variant="warning" className='sb'><span>12</span></Button></td>
+        <td style={{textAlign:"center"}}><Button variant="warning" className={style.sb}><span>10</span></Button></td>
+        <td style={{textAlign:"center"}}><Button variant="warning" className={style.sb}><span>11</span></Button></td>
+        <td style={{textAlign:"center"}}><Button variant="warning" className={style.sb}><span>12</span></Button></td>
         </tr>
         <tr>
-        <td style={{textAlign:"center"}}><Button variant="warning" className='sb'><span>13</span></Button></td>
-          <td style={{textAlign:"center"}}><Button variant="warning" className='sb'><span>14</span></Button></td>
-          <td style={{textAlign:"center"}}><Button variant="warning" className='sb'><span>15</span></Button></td>
+        <td style={{textAlign:"center"}}><Button variant="warning" className={style.sb}><span>13</span></Button></td>
+          <td style={{textAlign:"center"}}><Button variant="warning" className={style.sb}><span>14</span></Button></td>
+          <td style={{textAlign:"center"}}><Button variant="warning" className={style.sb}><span>15</span></Button></td>
         </tr>
       </tbody>
     </Table>

@@ -4,7 +4,9 @@ import { toast, ToastContainer } from 'react-toastify';
 import axiosPrivate from '../../Api/axiosPrivate';
 import style from '../Admin_css/question.module.css'
 import {AiOutlineCloseCircle} from 'react-icons/ai';
+import { useAuth } from '../../Authentication';
 export default function QuestionSet() {
+    const auth=useAuth();
     const [currentPage,setCurrentPage]=useState(1);
     const [flag,setFlag]=useState(false);
     const [details,setDetails]=useState(
@@ -13,23 +15,22 @@ export default function QuestionSet() {
         {
           question:"",
           choices:[""],
-          correctAnswer:1,
+          correctAnswer:"1",
           mark:"1",
           explanation:"",
-          mode:""
+          mode:"Easy"
          }
        ]
       }
     )
 
-    
 
  //Over All Data For Question Set
     const [qsettitle,setQsettitle]=useState('');
-    const [totalmark, setTotalMark] = useState('');
+    const [totalmark, setTotalMark] = useState(0);
     const[time,setTime]=useState(0);
-    const [category,setCategory]=useState('');
-    const [qdifficulty,setqDifficulty]=useState('');
+    const [category,setCategory]=useState('Python');
+    const [qdifficulty,setqDifficulty]=useState('Easy');
    const [testtype,setTesttype]=useState('test');
 
 
@@ -46,15 +47,43 @@ export default function QuestionSet() {
             questions:[...details.q],
             type:qdifficulty,
             time:time,
-            mode:qdifficulty
+            mode:qdifficulty,
+            token:JSON.parse(auth.details).token
           },{withCredentials:true}
         
-        ).then((res)=>{console.log(res)}).catch((err)=>{console.log(err)})
+        ).then((res)=>{console.log(res);clear();toast.success("Submited Successfully")}).catch((err)=>{console.log(err);details.q.push({
+            question:"",
+            choices:[""],
+            correctAnswer:"1",
+            mark:"1",
+            explanation:"",
+            mode:"Easy"
+         })})
         
     };
 
 
+   const clear=()=>{
+  setQsettitle('');
+  setTotalMark(0);
+  setTime(0);
+  setDetails(      {
+    q:[
+     {
+       question:"",
+       choices:[""],
+       correctAnswer:"1",
+       mark:"1",
+       explanation:"",
+       mode:"Easy"
+      }
+    ]
+   })
+   setCurrentPage(1);
+   setFlag(false);
 
+
+   }
     const save=(con)=>{
      
         if( details.q[currentPage-1].question==="" ||  details.q[currentPage-1].choices.length<2 || details.q[currentPage-1].correctAnswer==="" || details.q[currentPage-1].mark==="" || details.q[currentPage-1].mode==="")
@@ -65,16 +94,16 @@ export default function QuestionSet() {
         if(details.q[currentPage-1].explanation==="")
             details.q[currentPage-1].explanation="none";
       
-            setTotalMark(totalmark+details.q[currentPage-1].mark)
+            setTotalMark(totalmark+Number(details.q[currentPage-1].mark))
       if(con)
       {
         details.q.push({
-          question:"",
-          choices:[""],
-          correctAnswer:"",
-          mark:"",
-          explanation:"",
-          mode:""
+            question:"",
+            choices:[""],
+            correctAnswer:"1",
+            mark:"1",
+            explanation:"",
+            mode:"Easy"
          })
       }
      

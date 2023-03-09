@@ -17,6 +17,7 @@ import QuestionSet from './Resources/Admin_Pages/QuestionSet';
 import Practice from './Resources/User_Pages/Practice';
 import Test from './Resources/User_Pages/Test';
 import Profile from './Resources/User_Pages/pages/Profile/Profile';
+import AutoLayoutExample from './Resources/User_components/Question/AutoLayoutExample';
 function App() {
   return (
     <>
@@ -29,10 +30,11 @@ function App() {
               <Route path='test' element={<Test/>}></Route>
               <Route path='profile' element={<Profile/>}></Route>
 
-
             
             </Route>
             <Route path='login' element={<Login/>}/>
+            <Route path='/taketest' element={<AutoLayoutExample/>}></Route>
+
 
           
            <Route path='/admin' element={<AdminLoginRequired><Admin/></AdminLoginRequired>}>
