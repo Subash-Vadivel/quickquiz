@@ -16,6 +16,12 @@ function AutoLayoutExample() {
   const [currentQ,setCurrentQ]=useState(1);
   const [status,setStatus]=useState(false);
   const [answer,setAnswer]=useState('');
+  const [answerscript,setAnswerscript]=useState([
+
+  ]);
+ 
+  console.log(answerscript);
+
   const load=async()=>{
     await axiosPrivate.get(`question/${param.id}`).then((res)=>{setQuestion(res.data.data.question.questions);setBasic(res.data.data.question);console.log(res.data.data.question);setStatus(true)}).catch((err)=>{console.log(err)});
   }
@@ -62,27 +68,34 @@ function AutoLayoutExample() {
   
             {
               question[currentQ-1].choices.map((data,index)=>
-               <Form.Control  key={index} type="text" value={data} onClick={(e) => setAnswer(e.target.value)} className={style.choiceForm} readOnly />
+               <Form.Control  key={index} type="text" value={data}  onClick={(e) => {setAnswerscript({...answerscript,[question[currentQ-1].question]:e.target.value})}} className={style.choiceForm} readOnly />
               )
             }
-          <Button variant="danger" onClick={()=>{setAnswer('')}}>Clear</Button>{' '}
+          <Button variant="danger" onClick={()=>{setAnswerscript({...answerscript,[question[currentQ-1].question]:""})}}>Clear</Button>{' '}
           <br/>
           <br/>
+          
+        {
+          currentQ>1?
+          <Button variant="primary" size="md" onClick={()=>{setCurrentQ((pre)=>pre-1);}}>
+            back
+          </Button>:<></>
+        }
+        {" "}
+        {" "}
+        {
+          currentQ<question.length?
+          <Button variant="primary" size="md" onClick={()=>{setCurrentQ((pre)=>pre+1);}}>
+          next
+        </Button>:<>
+        </>
+        }
         </Col>
         <Col md={3} className="text-end">
-         <Sidebar/>
+         <Sidebar qcount={9} setCurrentQ={setCurrentQ} answerscript={answerscript}/>
         </Col>
       </Row>
-        <br/>
-        <footer style={{textAlign:"center"}}>
-        {/* 64056e5e7d2a21b1ff638324 */}
-        <Button variant="primary" size="md">
-          back
-        </Button>
-        <Button variant="primary" size="md">
-        next
-      </Button>
-      </footer>
+      
         </Container>
       </Container> 
     ):
