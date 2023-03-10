@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Authentication from './Authentication';
-
 import Admin from './Resources/Admin_Pages/Admin'
 import "bootstrap/dist/css/bootstrap.min.css";
 import AdminLogin from './Resources/Admin_Pages/AdminLogin';
@@ -34,9 +33,6 @@ function App() {
             </Route>
             <Route path='login' element={<Login/>}/>
             <Route path='/taketest/:id' element={<AutoLayoutExample/>}></Route>
-
-
-          
            <Route path='/admin' element={<AdminLoginRequired><Admin/></AdminLoginRequired>}>
                     <Route index element={<DashBoard/>}></Route>
                     <Route path="setquestion" element={<QuestionSet/>}></Route>
