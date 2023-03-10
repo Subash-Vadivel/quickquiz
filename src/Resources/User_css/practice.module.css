@@ -23,7 +23,7 @@
 }
 
 .filterbox{
-    border-radius: 0px 0px 10px 10px;
+    border-radius: 10px 0px 10px 10px;
 }
 .filterbox_header{
     border-radius: 15px 0px 15px 0px;
@@ -50,12 +50,20 @@
  padding: 10px 0px;  
 }
 
-.filterbox_footer{
+.filterbox_alter{
     display: flex;
-    justify-content: end;
-    align-items: flex-end;
     padding:2%;
 }
+
+/* .filterbox_alter_apply{
+    justify-content: right;
+    align-items: flex-end;
+}
+
+.filterbox_alter_clear{
+    justify-content: left;
+    align-items: flex-start;
+} */
 
 .questionpaper{
     margin: 10px;
@@ -64,6 +72,7 @@
     padding: 20px;
     border: 2px solid  rgb(16,24,39);
     /* border-style: none; */
+    line-height: 4rem;
 }
 
 .practicelist{
