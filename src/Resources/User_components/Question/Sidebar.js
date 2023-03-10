@@ -2,18 +2,33 @@ import React, { useState } from 'react';
 import {Table} from 'react-bootstrap'
 import style from './sb.module.css'
 import { Button } from 'react-bootstrap';
+import Options from './Options';
 export default function Sidebar(props) {
   const [isOpen, setIsOpen] = useState(false);
   const [start,setStart]=useState(0);
   const list=[];
+  const qnum=[];
   for(var i=1;i<=props.qcount;i++)
   {
-    list.push(i);
+    qnum.push(i);
   }
-  console.log(list);
+  for(var i=4;i<=props.qcount;i=i+3)
+  {
+    list.push(3);
+  }
+  if(props.qcount%3!==0)
+  {
+    list.push(props.qcount%3);
+  }
+  else
+  {
+    list.push(3);
+  }
   const toggleOffcanvas = () => {
     setIsOpen(!isOpen);
   }
+
+
   return (
     <nav class="navbar navbar-expand-lg navbar-light ">
   <div class="container-fluid">
@@ -31,24 +46,17 @@ export default function Sidebar(props) {
       <br/>
       <Table className={style.myTable}>
       <tbody>
-        
-        {
-           list.slice(start,start+4).map((data,index)=>{
-            if(data>props.qcount)
+ 
+         {
+         list.map((data,index)=>
             {
-                return;
-            }
-            else if(data==start+4)
-            {
-                 setStart(start+3);
-            }
-             else
-             {
-               return <td key={data} style={{textAlign:"center"}}><Button variant="warning" className={style.sb}><span>{data}</span></Button></td>}
+               return <tr key={index}> <Options qnum={qnum} question={props.question} start={index} answerscript={props.answerscript} setCurrentQ={props.setCurrentQ}/></tr>
              }
-           )
+         )
         }
+          
 
+        
         {/* <tr>
           <td style={{textAlign:"center"}}><Button variant="warning" className={style.sb}><span>1</span></Button></td>
           <td style={{textAlign:"center"}}><Button variant="warning" className={style.sb}><span>2</span></Button></td>

@@ -16,6 +16,7 @@ function AutoLayoutExample() {
   const [currentQ,setCurrentQ]=useState(1);
   const [status,setStatus]=useState(false);
   const [answer,setAnswer]=useState('');
+  const [flag,setFlag]=useState("1");
   const [answerscript,setAnswerscript]=useState([
 
   ]);
@@ -68,7 +69,14 @@ function AutoLayoutExample() {
   
             {
               question[currentQ-1].choices.map((data,index)=>
-               <Form.Control  key={index} type="text" value={data}  onClick={(e) => {setAnswerscript({...answerscript,[question[currentQ-1].question]:e.target.value})}} className={style.choiceForm} readOnly />
+               <Form.Control  key={index} type="text" value={data} onClick={(e) => {setAnswerscript({...answerscript,[question[currentQ-1].question]:e.target.value});}} 
+               className=
+               {
+                
+                (data!==answerscript[question[currentQ-1].question])?
+                style.choiceForm:style.selectedOption
+              }
+                readOnly />
               )
             }
           <Button variant="danger" onClick={()=>{setAnswerscript({...answerscript,[question[currentQ-1].question]:""})}}>Clear</Button>{' '}
@@ -92,7 +100,8 @@ function AutoLayoutExample() {
         }
         </Col>
         <Col md={3} className="text-end">
-         <Sidebar qcount={9} setCurrentQ={setCurrentQ} answerscript={answerscript}/>
+          <Sidebar qcount={question.length} question={question} setCurrentQ={setCurrentQ} answerscript={answerscript}/>
+         
         </Col>
       </Row>
       

@@ -21,3 +21,10 @@
     cursor: pointer;
     margin-bottom: 30px;
 }
+.selectedOption
+{
+    background-color: green;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 30px;   
+}
