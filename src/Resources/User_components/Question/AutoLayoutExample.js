@@ -42,7 +42,7 @@ function AutoLayoutExample() {
           <h2>&nbsp;Aptitude</h2>
         </Col>
         <Col md={1}>
-          <Timer />
+          <Timer timer={1*60}/>
         </Col>
         <Col md={1}>
           <Button variant="success">Submit</Button>{' '}

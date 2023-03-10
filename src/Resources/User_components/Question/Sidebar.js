@@ -31,7 +31,7 @@ export default function Sidebar(props) {
       <br/>
       <Table className={style.myTable}>
       <tbody>
-        <tr>
+        
         {
            list.slice(start,start+4).map((data,index)=>{
             if(data>props.qcount)
@@ -48,7 +48,6 @@ export default function Sidebar(props) {
              }
            )
         }
-        </tr>
 
         {/* <tr>
           <td style={{textAlign:"center"}}><Button variant="warning" className={style.sb}><span>1</span></Button></td>
