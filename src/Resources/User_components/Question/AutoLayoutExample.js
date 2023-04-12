@@ -18,7 +18,6 @@ function AutoLayoutExample() {
   const [answer,setAnswer]=useState('');
   const [flag,setFlag]=useState("1");
   const [answerscript,setAnswerscript]=useState([
-
   ]);
  
   console.log(answerscript);
@@ -33,6 +32,16 @@ function AutoLayoutExample() {
   const handlesubmit=async(req,res)=>{
     console.log("working")
   }
+
+  const completed=async()=>{
+    await axiosPrivate.post('user/submit-response',{
+      qid:param.id,
+      answerscript
+    }).then((res)=>console.log(res)).catch((err)=>{
+      console.log(err);
+    })
+  }
+
 
   return (
    <>
@@ -50,7 +59,7 @@ function AutoLayoutExample() {
           <Timer timer={1*60} submit={handlesubmit}/>
         </Col>
         <Col md={1}>
-          <Button variant="success">Submit</Button>{' '}
+          <Button variant="success" onClick={completed}>Submit</Button>{' '}
           <br/>
           <br/>
         </Col>

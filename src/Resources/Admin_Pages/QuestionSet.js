@@ -32,7 +32,7 @@ export default function QuestionSet() {
     const [category,setCategory]=useState('Python');
     const [qdifficulty,setqDifficulty]=useState('Easy');
    const [testtype,setTesttype]=useState('test');
-
+   const user=useAuth().details;
 
 //Individual Data
     // const [mode, setMode] = useState('easy');
@@ -48,7 +48,8 @@ export default function QuestionSet() {
             type:qdifficulty,
             time:time,
             mode:qdifficulty,
-            token:JSON.parse(auth.details).token
+            token:JSON.parse(auth.details).token,
+            user
           },{withCredentials:true}
         
         ).then((res)=>{console.log(res);clear();toast.success("Submited Successfully")}).catch((err)=>{console.log(err);details.q.push({
