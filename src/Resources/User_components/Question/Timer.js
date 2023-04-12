@@ -14,6 +14,10 @@ function Timer(props) {
   const remin=seconds%3600;
   const minutes = Math.floor(remin/ 60);
   const remainingSeconds = remin % 60;
+  if(hour<=0 && minutes<=0 && seconds<=0)
+  {
+    props.submit();
+  }
   return (
     <Container>
       <Row>

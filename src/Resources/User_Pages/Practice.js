@@ -228,9 +228,10 @@ return (
         
               { filter.slice(start,start+5).map((data,index)=> 
             <Col key={index}>
+                {console.log(data)}
                 <Card className={practice_styles.questionpaper} >
                     <Card.Title>
-                        <Row><Col sm={9}>Topic : {data.topic}</Col><Col>Time : </Col></Row></Card.Title>
+                        <Row><Col sm={9}>Topic : {data.topic}</Col><Col>Time : {data.time}</Col></Row></Card.Title>
                     <Card.Body>
                     <Row>
                     <Col sm={6}><Card.Text>Category :  {data.categoryName}</Card.Text></Col>
@@ -250,9 +251,14 @@ return (
         
                )}
                
-               {start>2?<Button onClick={()=>{setStart((pre)=>pre-5)}}>Back</Button>:<></>}
-               {" "}{" "}{" "}
+               <Row>
+                <Col>
+               {start>2?<Button style={{float:"right"}} onClick={()=>{setStart((pre)=>pre-5)}}>Back</Button>:<></>}
+               </Col>
+               <Col>
                {start<filter.length?<Button onClick={()=>{setStart((pre)=>pre+5)}}>Next</Button>:<></>}
+               </Col>
+               </Row>
         </Row>
     </Container>
 

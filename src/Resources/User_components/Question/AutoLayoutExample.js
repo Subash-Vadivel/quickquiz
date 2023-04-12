@@ -30,6 +30,10 @@ function AutoLayoutExample() {
      load();
   },[])
 
+  const handlesubmit=async(req,res)=>{
+    console.log("working")
+  }
+
   return (
    <>
    {
@@ -43,7 +47,7 @@ function AutoLayoutExample() {
           <h2>&nbsp;Aptitude</h2>
         </Col>
         <Col md={1}>
-          <Timer timer={1*60}/>
+          <Timer timer={1*60} submit={handlesubmit}/>
         </Col>
         <Col md={1}>
           <Button variant="success">Submit</Button>{' '}
@@ -79,7 +83,11 @@ function AutoLayoutExample() {
                 readOnly />
               )
             }
-          <Button variant="danger" onClick={()=>{setAnswerscript({...answerscript,[question[currentQ-1].question]:""})}}>Clear</Button>{' '}
+            {/* setAnswerscript({...answerscript,[question[currentQ-1].question]:""}) */}
+          <Button variant="danger" onClick={()=>{
+            delete answerscript[question[currentQ-1].question];
+            setAnswerscript({...answerscript});
+          }}>Clear</Button>{' '}
           <br/>
           <br/>
           

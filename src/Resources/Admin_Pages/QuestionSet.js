@@ -15,7 +15,7 @@ export default function QuestionSet() {
         {
           question:"",
           choices:[""],
-          correctAnswer:"1",
+          correctAnswer:"",
           mark:"1",
           explanation:"",
           mode:"Easy"
@@ -54,7 +54,7 @@ export default function QuestionSet() {
         ).then((res)=>{console.log(res);clear();toast.success("Submited Successfully")}).catch((err)=>{console.log(err);details.q.push({
             question:"",
             choices:[""],
-            correctAnswer:"1",
+            correctAnswer:"",
             mark:"1",
             explanation:"",
             mode:"Easy"
@@ -72,7 +72,7 @@ export default function QuestionSet() {
      {
        question:"",
        choices:[""],
-       correctAnswer:"1",
+       correctAnswer:"",
        mark:"1",
        explanation:"",
        mode:"Easy"
@@ -100,7 +100,7 @@ export default function QuestionSet() {
         details.q.push({
             question:"",
             choices:[""],
-            correctAnswer:"1",
+            correctAnswer:"",
             mark:"1",
             explanation:"",
             mode:"Easy"
@@ -213,8 +213,8 @@ export default function QuestionSet() {
                                         <Form.Label>Correct Answer</Form.Label>
                                         <Form.Control as="select" value={details.q[currentPage-1].correctAnswer} onChange={(e) =>{details.q[currentPage-1].correctAnswer=(e.target.value);;setDetails({...details})}} required>
                                             {details.q[currentPage-1].choices.map((option, index) => (
-                                                <option key={index} value={index+1}>
-                                                    {`Option ${index + 1}`}
+                                                <option key={index} value={option}>
+                                                    {option}
                                                 </option>
                                             ))}
                                         </Form.Control>
