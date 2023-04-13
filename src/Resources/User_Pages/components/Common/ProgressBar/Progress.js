@@ -78,7 +78,7 @@ function Progress({ test_status }) {
                     now={medium_percent}
                     label={`${medium_percent}%`}
                     className="progress-bar-medium"
-                    style={{ backgroundColor: "#ff6347" }}
+                    style={{ backgroundColor: "#ff6347"}}
                   />
                   <ListGroup.Item>{`Hard: ${hard}/${hard_total}`}</ListGroup.Item>
                   <ProgressBar

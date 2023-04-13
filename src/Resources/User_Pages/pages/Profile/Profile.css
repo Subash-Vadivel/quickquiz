@@ -50,6 +50,7 @@
   max-width: 300px;
   position: sticky;
   top: 0;
+  margin-left: 10px;
 }
 
 .user_profile_content {
@@ -58,6 +59,8 @@
   align-items: center;
   flex-grow: 1;
   padding-top: 300px;
+  margin: 20px;
+  padding-left: 10px;
   height: 100%;
   /* position: sticky; */
   /* top:0; */
@@ -74,8 +77,37 @@
   margin-top: 50px;
 }
 
-.user_profile_tests {
+/* .user_profile_tests {
   margin-top: 50px;
+} */
+/* 
+.user_profile_headcontainer{
+  padding: 0% 1% 0% 1%;
+  border:none;
+}
+
+.user_profile_cardbody{
+    box-shadow:10px black ;
+    border-radius: 15px 15px 15px 15px;
+    background-color:#18354C;
+    background-color: rgb(16,24,39);
+    color: white;
+    text-align: center;
+    align-items: center;
+    border : none;
+    font-size: large;
+    height: 1px;
+}
+
+.user_profile_title{
+  font-size: x-large;
+} */
+
+.user_profile_hr{
+  height: 2px;
+  /* padding: 0% 2% 0% 2%; */
+  margin: 0% 2% 0% 2%;
+  background-color:#18354C;
 }
 
 @media (min-width: 768px) {

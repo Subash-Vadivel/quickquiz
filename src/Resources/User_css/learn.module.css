@@ -93,9 +93,16 @@
     }
   
     .flip_card_description{
+      padding: 10px;
       align-items: center;
       height: 80%;
-      font-size: large;
+      font-size: medium;
+    }
+
+    .flip_card_back a:hover{
+      color:yellow;
+      font-size:large;
+      
     }
   
     .logoWrapper{
