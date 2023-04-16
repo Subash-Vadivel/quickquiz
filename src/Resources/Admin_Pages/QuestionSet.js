@@ -47,7 +47,7 @@ export default function QuestionSet() {
             questions:[...details.q],
             type:qdifficulty,
             time:time,
-            mode:qdifficulty,
+            mode:testtype,
             token:JSON.parse(auth.details).token,
             user
           },{withCredentials:true}

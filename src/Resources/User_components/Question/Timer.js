@@ -8,21 +8,32 @@ function Timer(props) {
     const interval = setInterval(() => {
       setSeconds(seconds => seconds - 1);
     }, 1000);
+
+    const hour = Math.floor(seconds / 3600);
+    const remin = seconds % 3600;
+    const minutes = Math.floor(remin / 60);
+    const remainingSeconds = remin % 60;
+
+    if (hour === 0 && minutes === 0 && remainingSeconds === 0) {
+      clearInterval(interval);
+      props.submit();
+    }
+
     return () => clearInterval(interval);
-  }, []);
-  const hour=Math.floor(seconds/3600);
-  const remin=seconds%3600;
-  const minutes = Math.floor(remin/ 60);
+  }, [seconds]);
+
+  const hour = Math.floor(seconds / 3600);
+  const remin = seconds % 3600;
+  const minutes = Math.floor(remin / 60);
   const remainingSeconds = remin % 60;
-  if(hour<=0 && minutes<=0 && seconds<=0)
-  {
-    props.submit();
-  }
+
   return (
     <Container>
       <Row>
         <Col>
-          <h3>{hour}:{minutes <10 ? '0' :''}{minutes}:{remainingSeconds < 10 ? '0' : ''}{remainingSeconds}</h3>
+          <h3>
+            {hour}:{minutes < 10 ? '0' : ''}{minutes}:{remainingSeconds < 10 ? '0' : ''}{remainingSeconds}
+          </h3>
         </Col>
       </Row>
     </Container>
