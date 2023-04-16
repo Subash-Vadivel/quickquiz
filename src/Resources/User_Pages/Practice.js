@@ -35,7 +35,7 @@ const [currentFilter,setCurrentFilter] = useState({mode:[],categoryName:[]})
 const [state,setState] = useState(0)
 
 const load=async()=>{
-        await axiosPrivate.get('/question').then((res)=>{
+        await axiosPrivate.get('/question/practice').then((res)=>{
             setPractice(res.data.data.allQuestions); 
             setFilter(res.data.data.allQuestions);
             var questionList = res.data.data.allQuestions
