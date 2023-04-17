@@ -25,7 +25,7 @@ export default function Home() {
                 <Card.Title className={learn_styles.title}>Courses</Card.Title>
             </Card.Body>
           </Card>
-          <Container className={learn_styles.subcontainer}>
+          <Container fluid className={learn_styles.subcontainer}>
             {learn.map(l=>
             <Card className={learn_styles.flip_card}>
               <Card className={learn_styles.flip_card_inner}>

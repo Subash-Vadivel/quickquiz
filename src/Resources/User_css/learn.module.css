@@ -21,10 +21,10 @@
   
   
   .subcontainer{
-      margin: 0vh 10vh;
+      /* margin: 0vh 10vh; */
       width: 90%;
       display: flex;
-      flex-wrap:wrap;
+      flex-wrap: wrap;
       align-content: flex-start;
       justify-content: center;
       padding: 40px;
