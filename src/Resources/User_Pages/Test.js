@@ -28,7 +28,7 @@ const [filter,setFilter] = useState([])
 
 const [category,setCategory] = useState([])
 
-const [checked,setChecked] = useState({'Easy': false,'medium': false, 'Hard': false})
+const [checked,setChecked] = useState({'Easy': false,'Medium': false, 'Hard': false})
 
 const [currentFilter,setCurrentFilter] = useState({mode:[],categoryName:[]})
 
@@ -107,7 +107,7 @@ const applyFilter = () => {
     var currFilters = {mode: [], categoryName: []}
     Object.keys(checkedList).map(data=>{
         if(checkedList[data] === true){
-            if(['Easy','medium','Hard'].includes(data) === true){
+            if(['Easy','Medium','Hard'].includes(data) === true){
                 if(currFilters.mode.length === 0){
                     currFilters.mode.push(data)
                 }
@@ -184,8 +184,8 @@ return (
                         <CDBSidebarMenuItem><Form>
                             <Form.Check 
                                 type={"Checkbox"}
-                                id={`medium`}
-                                checked={checked['medium']}
+                                id={`Medium`}
+                                checked={checked['Medium']}
                                 onChange={isChecked}
                                 label={`Medium`}
                             /></Form>
