@@ -3,8 +3,7 @@ import BadgeCard from '../../components/Common/Badge/BadgeCard';
 import PreviousTestsList from '../../components/Common/PreviousTest/PreviousTest';
 import Progress from '../../components/Common/ProgressBar/Progress';
 import Sidebar from '../../components/Common/SideBar/SideBar';
-
-
+import { Card } from 'react-bootstrap';
 import './Profile.css'
 
 function Profile() {
@@ -96,6 +95,13 @@ function Profile() {
   };
   return (
     <>
+    <div className="user_profile_hr"><span><b>Profile</b></span></div>
+    {/* <Card className="user_profile_headcontainer">
+          <Card.Body className="user_profile_cardbody">
+            <Card.Title className="user_profile_title"></Card.Title>
+          </Card.Body>
+    </Card>
+    <br></br>   */}
       <div className="user_profile_container">
         <div className="user_profile_sidebar">
           <Sidebar

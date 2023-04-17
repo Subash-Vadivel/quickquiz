@@ -13,7 +13,7 @@ function Header(props)
    return(
       <>
       <Navbar className={style.colorNav} collapseOnSelect  expand='md'>
-            <Container>
+            <Container fluid>
                   <Navbar.Brand>
                               <div className={style.logoWrapper}>
                               < img src={logo} alt="logo"/>

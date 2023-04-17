@@ -184,14 +184,17 @@
 
   .progress-bar-easy {
       background-color: #28a745 !important;
+      height: 20px
   }
 
   .progress-bar-medium {
       background-color: #ffc107 !important;
+      height: 20px
   }
 
   .progress-bar-hard {
       background-color: #dc3545 !important;
+      height: 20px
   }
 
   .progress {

@@ -142,14 +142,15 @@ useEffect(()=>{
 
 return (
     <>
-    <Card className={practice_styles.headcontainer}>
+    {/* <Card className={practice_styles.headcontainer}>
           <Card.Body className={practice_styles.cardbody}>
             <Card.Title className={practice_styles.title}>Practice</Card.Title>
           </Card.Body>
-    </Card>
-    <br></br>    
-
-
+    </Card> */}  
+    
+    
+    <div className={practice_styles.hr}><span><b>Practice</b></span></div>
+    <br></br> 
     <div className={practice_styles.dFlex}>
     <div className={practice_styles.fixedSideBar}>
     
