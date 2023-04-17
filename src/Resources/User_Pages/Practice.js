@@ -35,7 +35,7 @@ const [currentFilter,setCurrentFilter] = useState({mode:[],categoryName:[]})
 const [state,setState] = useState(0)
 
 const load=async()=>{
-        await axiosPrivate.get('/question').then((res)=>{
+        await axiosPrivate.get('/question/practice').then((res)=>{
             setPractice(res.data.data.allQuestions); 
             setFilter(res.data.data.allQuestions);
             var questionList = res.data.data.allQuestions
@@ -256,7 +256,7 @@ return (
                {start>2?<Button style={{float:"right"}} onClick={()=>{setStart((pre)=>pre-5)}}>Back</Button>:<></>}
                </Col>
                <Col>
-               {start<filter.length?<Button onClick={()=>{setStart((pre)=>pre+5)}}>Next</Button>:<></>}
+               {start+5<filter.length-1?<Button onClick={()=>{setStart((pre)=>pre+5)}}>Next</Button>:<></>}
                </Col>
                </Row>
         </Row>
