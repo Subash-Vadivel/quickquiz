@@ -19,6 +19,23 @@
     font-size: x-large;
   }
   
+  .hr{
+    justify-content: center; 
+    text-align: center; 
+    border-bottom: 1px solid #000; 
+    line-height: 0.1em;
+    padding: 0% 2% 0% 2%;
+    margin: 2% 2% 2% 2%;
+    padding: 0 10px;
+    /* background-color:#18354C; */
+    background-color:rgba(71,11,130,1);
+    color: rgba(71,11,130,1);
+    font-size: x-large;
+}
+ .hr span { 
+     background:#fff; 
+     padding:0 10px; 
+ }
   
   .subcontainer{
       /* margin: 0vh 10vh; */

@@ -95,7 +95,7 @@ function Profile() {
   };
   return (
     <>
-    <Card className="user_profile_hr"></Card>
+    <div className="user_profile_hr"><span><b>Profile</b></span></div>
     {/* <Card className="user_profile_headcontainer">
           <Card.Body className="user_profile_cardbody">
             <Card.Title className="user_profile_title"></Card.Title>

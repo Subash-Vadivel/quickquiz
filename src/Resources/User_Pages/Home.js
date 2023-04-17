@@ -20,11 +20,13 @@ export default function Home() {
   
     return (
         <>
-          <Card className={learn_styles.headcontainer}>
+          {/* <Card className={learn_styles.headcontainer}>
             <Card.Body className={learn_styles.cardbody}>
                 <Card.Title className={learn_styles.title}>Courses</Card.Title>
             </Card.Body>
-          </Card>
+          </Card> */}
+          <div className={learn_styles.hr}><span><b>Courses</b></span></div>
+          <br></br> 
           <Container fluid className={learn_styles.subcontainer}>
             {learn.map(l=>
             <Card className={learn_styles.flip_card}>
