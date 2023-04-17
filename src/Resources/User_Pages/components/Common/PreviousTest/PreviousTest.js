@@ -10,7 +10,7 @@ function PreviousTestList({ tests }) {
           <Col>
             <ListGroup variant="flush">
               <ListGroup.Item active style={{ backgroundColor: "#18354C" }}>
-                Completed Courses
+                Completed Test
               </ListGroup.Item>
               {tests.map((test) => (
                 <ListGroup.Item key={test.id}>
