@@ -6,11 +6,9 @@
   .hr{
         justify-content: center; 
         text-align: center; 
-        border-bottom: 1px solid #000; 
-        line-height: 0.1em;
-        padding: 0% 2% 0% 2%;
+        line-height: 0.2em;
+        /* padding: 0% 2% 0% 2%; */
         margin: 2% 2% 2% 2%;
-        padding: 0 10px;
         background-color:#18354C;
         color: #18354C;
         font-size: x-large;
