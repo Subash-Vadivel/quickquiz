@@ -18,6 +18,7 @@ import Test from './Resources/User_Pages/Test';
 import Profile from './Resources/User_Pages/pages/Profile/Profile';
 import AutoLayoutExample from './Resources/User_components/Question/AutoLayoutExample';
 import LeaderBoard from "./Resources/User_Pages/LeaderBoard"
+import UserDetails from './Resources/User_Pages/UserDetails';
 function App() {
   return (
     <>
@@ -29,6 +30,7 @@ function App() {
               <Route path='practice' element={<Practice/>}></Route>
               <Route path='test' element={<Test/>}></Route>
               <Route path='profile' element={<Profile/>}></Route>
+              <Route path='details' element={<UserDetails/>}></Route>
               <Route path='leaderboard' element={<LeaderBoard/>}></Route>
 
             
