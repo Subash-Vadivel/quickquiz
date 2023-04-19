@@ -15,11 +15,6 @@
 
  .table{
     text-align: center;
-    
- }
-
- .tbody{
-   
  }
 
  .th{
@@ -34,7 +29,9 @@
 
  .usertr{
    background-color:rgb(4, 182, 241);
-   color:#fff;
+ }
+
+ tr:hover{
    font-size: large;
  }
 

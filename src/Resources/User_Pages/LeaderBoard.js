@@ -59,16 +59,16 @@ useEffect(()=>{
       </thead>
       <tbody className = {leaderboard_styles.tbody}>
           <tr className = {leaderboard_styles.usertr}>
-            <td>{userRank['rank']}</td>
+            <td Style={"color:white"}>{userRank['rank']}</td>
             {/* <td>{l.email.replace(/(@.*)/g,"")}</td> */}
-            <td>{userRank['uid']}</td>
-            <td>{userRank['rating']}</td>
+            <td Style={"color:white"}>{userRank['uid']}</td>
+            <td Style={"color:white"}>{userRank['rating']}</td>
           </tr>
           {searchResult ?
-          <tr Style={"background-color:green;color:white"}>
-            <td>{searchResult['rank']}</td>
-            <td>{searchResult['uid']}</td>
-            <td>{searchResult['rating']}</td>
+          <tr Style={"background-color:green"}>
+            <td Style={"color:white"}>{searchResult['rank']}</td>
+            <td Style={"color:white"}>{searchResult['uid']}</td>
+            <td Style={"color:white"}>{searchResult['rating']}</td>
           </tr>:<></>}
       { leaderboard.slice(start,start+15).map((l,index)=> 
             <tr key={start+index+1}>
