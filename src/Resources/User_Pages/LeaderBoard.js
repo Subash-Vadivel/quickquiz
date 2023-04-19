@@ -9,6 +9,8 @@ export default function LeaderBoard() {
   const [start,setStart] = useState(0)
   const [leaderboard,setLeaderboard] = useState([])
   const [searchResult,setSearchResult] = useState()
+  const [userRank,setUserRank] = useState({'rank':"MyRank",'uid':"MyName",'rating':0})
+
 
   const load=async()=>{
     await axiosPrivate.post('/user/ranking').then((res)=>{
@@ -49,21 +51,21 @@ useEffect(()=>{
   </Container>
     <Table className = {leaderboard_styles.table} striped bordered hover>
       <thead>
-        <tr Style={"background-color:grey"}>
+        <tr className = {leaderboard_styles.th}>
           <th Style = {"width:10%"}>Rank</th>
           <th>Username</th>
           <th Style = {"width:20%"}>Points</th>
         </tr>
       </thead>
-      <tbody>
-          <tr Style={"background-color:skyblue"}>
-            <td>MyRank</td>
+      <tbody className = {leaderboard_styles.tbody}>
+          <tr className = {leaderboard_styles.usertr}>
+            <td>{userRank['rank']}</td>
             {/* <td>{l.email.replace(/(@.*)/g,"")}</td> */}
-            <td>MyName</td>
-            <td>0</td>
+            <td>{userRank['uid']}</td>
+            <td>{userRank['rating']}</td>
           </tr>
           {searchResult ?
-          <tr Style={"background-color:green"}>
+          <tr Style={"background-color:green;color:white"}>
             <td>{searchResult['rank']}</td>
             <td>{searchResult['uid']}</td>
             <td>{searchResult['rating']}</td>

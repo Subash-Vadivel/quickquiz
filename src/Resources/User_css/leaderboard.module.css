@@ -15,10 +15,27 @@
 
  .table{
     text-align: center;
+    
  }
 
- td{
+ .tbody{
+   
+ }
+
+ .th{
+   background-color:rgba(71,11,130,1) ;
+   color:#fff;
+ }
+
+ tr{
    height: 50px;
+   /* outline : 0.2px solid rgba(71,11,130,1) */
+ }
+
+ .usertr{
+   background-color:rgb(4, 182, 241);
+   color:#fff;
+   font-size: large;
  }
 
  .searchbar{
