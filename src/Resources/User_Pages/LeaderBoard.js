@@ -19,6 +19,7 @@ export default function LeaderBoard() {
     }).catch((err)=>{console.log(err)})
     setSearchResult()
   }
+  
   const applysearch = (e)=>{
     if(e.target.value===""){
       setSearchResult()
