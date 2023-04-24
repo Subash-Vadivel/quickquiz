@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function BecomeaMember() {
   return (
-    <div>BecomeaMember</div>
+    <h5 style={"color:rgba(71,11,130,1)"}>Coming soon...</h5>
   )
 }
