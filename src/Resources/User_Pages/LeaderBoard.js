@@ -2,16 +2,34 @@ import React,{useState,useEffect} from 'react'
 import leaderboard_styles from '../User_css/leaderboard.module.css'
 import axiosPrivate from '../../Api/axiosPrivate';
 import { Card, Form, Row, Col, Container, Button , Table} from 'react-bootstrap';
+import { useAuth } from '../../Authentication';
 
 export default function LeaderBoard() {
-
+  const auth=useAuth().details;
+  const id=JSON.parse(auth).user_id;
   const [leaderboard,setLeaderboard] = useState([]) 
+  const [myposition,setmyposition]=useState();
+  const[myrank,setmyrank]=useState();
+
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filteredLeaderboard, setFilteredLeaderboard] = useState([]);
+
+  useEffect(() => {
+    setFilteredLeaderboard(
+      leaderboard.filter((l) =>
+        l.email.replace(/(@.*)/g, '').toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    );
+  }, [leaderboard, searchTerm]);
 
   const load=async()=>{
-    await axiosPrivate.post('/user/ranking').then((res)=>{
-        setLeaderboard(res.data); 
+    await axiosPrivate.post('/user/ranking',{id}).then((res)=>{
+        setLeaderboard(res.data.users); 
+        setmyposition(res.data.self);
+        setmyrank(res.data.rank);
         console.log(res)
     }).catch((err)=>{console.log(err)})
+    setFilteredLeaderboard(leaderboard);
 }
 
 useEffect(()=>{
@@ -33,6 +51,8 @@ useEffect(()=>{
               placeholder="Search"
               className="me-2"
               aria-label="Search"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)} 
             />
             <Button>
               Search
@@ -49,14 +69,21 @@ useEffect(()=>{
         </tr>
       </thead>
       <tbody>
-        {leaderboard.map((l,idx)=>(
-            <tr>
-            <td>{idx+1}</td>
-            <td>{l.email.replace(/(@.*)/g,"")}</td>
-            <td>{l.Rating}</td>
+        {myposition!=undefined  &&
+      <tr style={{backgroundColor:"#a6e8c8"}}>
+            <td>{myrank}</td>
+            <td>{myposition.email.replace(/(@.*)/g,"")}</td>
+            <td>{myposition.Rating}</td>
             {}
           </tr>
-        ))}
+          }
+        {filteredLeaderboard.map((l, idx) => (
+  <tr key={l.email}>
+    <td>{idx + 1}</td>
+    <td>{l.email.replace(/(@.*)/g, '')}</td>
+    <td>{l.Rating}</td>
+  </tr>
+))}
       </tbody>
     </Table>
     </Container>
