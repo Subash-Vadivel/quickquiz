@@ -23,7 +23,16 @@ export default function AdminLoginForm(props) {
   const submitform=async(e)=>{
 e.preventDefault();
      await axiosPrivate.post('/accounts/login',{user:userid,
-     password:password}).then((res)=>{toast.success('Logged In');setTimeout(()=>{auth.login(res.data.details);props.setStatus("success"); },2000)}).catch((err)=>{toast.warning("Invalid Credential!")});
+     password:password}).then((res)=>{
+     if(!res.data.data.isAdmin && !res.data.data.isStaff )
+     {
+      toast.warning('Unauthorized Access');
+     }
+     else
+     {
+      toast.success('Login Success');
+     }
+     setTimeout(()=>{auth.login(res.data.details);props.setStatus("success"); },2000)}).catch((err)=>{toast.error("Invalid Credential!")});
     //  auth.login(res.data.jwt_token);props.setStatus("sucs")
   }
   return (

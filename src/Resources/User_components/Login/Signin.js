@@ -29,7 +29,7 @@ lastName:ln}).then((res)=>{
   toast.success("Verify Email To Activate Account ")
   setTimeout(()=>{navigate('/')},4000)
   
-}).catch((err)=>{toast.error("Something Went Wrong Try Again!")});
+}).catch((err)=>{toast.error("Something Went Wrong Try Again!");console.log(err)});
     
   }
   return (
@@ -37,7 +37,7 @@ lastName:ln}).then((res)=>{
      <div className='center-form'>
                 <h2>Register</h2><br></br>
                       <Form onSubmit={submit}>
-                      <Form.Group controlId="formBasicfName">
+                      <Form.Group >
                         <Row>
                           <Col>
                         <Form.Label>First Name</Form.Label>

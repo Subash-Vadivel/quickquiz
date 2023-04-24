@@ -120,7 +120,7 @@ console.log(user);
           <h2>&nbsp;Aptitude</h2>
         </Col>
         <Col md={1}>
-          <Timer timer={1*60} submit={completed}/>
+          <Timer timer={basic.time*60} submit={completed}/>
         </Col>
         <Col md={1}>
           <Button variant="success" onClick={completed}>Submit</Button>{' '}

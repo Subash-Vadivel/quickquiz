@@ -16,8 +16,8 @@ function Footer()
             <Col md={3} sm={6}  xs={6}><ul type="none" className={style.footLi}>
                 <li onClick={()=>{navigate('/about')}}>About Quick Quiz</li>
                 <li onClick={()=>{navigate('/')}}>Home</li>
-                <li onClick={()=>{navigate('/support')}}>Contact Us</li>
-                <li>Practice</li>
+                <li onClick={()=>{navigate('/contactus')}}>Contact Us</li>
+                <li onClick={()=>{navigate('/practice')}}>Practice</li>
                 <li  onClick={()=>{navigate('/support')}}>Support</li>
                 <li>Careers</li>
                 <li>Blog</li>
@@ -25,11 +25,11 @@ function Footer()
             <Col md={3} sm={6} xs={6}>
                 <ul type="none" className={style.footLi}>
                     <li>Info</li>
-                    <li>Compete</li>
+                    <li onClick={()=>{navigate('/test')}}>Compete</li>
                     <li>Business Partner</li>
                     <li onClick={()=>{navigate('/becomemember')}}>Become a Member</li>
-                    <li>Privacy Policy</li>
-                    <li>Terms & Conditions</li>
+                    <li onClick={()=>{navigate('/privacypolicy')}}>Privacy Policy</li>
+                    <li onClick={()=>{navigate('/terms&conditions')}}>Terms & Conditions</li>
                     {/* &#38; */}
                 </ul>
             </Col>

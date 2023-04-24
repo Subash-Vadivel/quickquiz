@@ -17,7 +17,9 @@ import Practice from './Resources/User_Pages/Practice';
 import Test from './Resources/User_Pages/Test';
 import Profile from './Resources/User_Pages/pages/Profile/Profile';
 import AutoLayoutExample from './Resources/User_components/Question/AutoLayoutExample';
-import LeaderBoard from './Resources/User_Pages/LeaderBoard';
+import LeaderBoard from "./Resources/User_Pages/LeaderBoard"
+import UserDetails from './Resources/User_Pages/UserDetails';
+import AccessControl from './Resources/Admin_Pages/AccessControl';
 function App() {
   return (
     <>
@@ -29,6 +31,7 @@ function App() {
               <Route path='practice' element={<Practice/>}></Route>
               <Route path='test' element={<Test/>}></Route>
               <Route path='profile' element={<Profile/>}></Route>
+              <Route path='details' element={<UserDetails/>}></Route>
               <Route path='leaderboard' element={<LeaderBoard/>}></Route>
 
             
@@ -38,6 +41,8 @@ function App() {
            <Route path='/admin' element={<AdminLoginRequired><Admin/></AdminLoginRequired>}>
                     <Route index element={<DashBoard/>}></Route>
                     <Route path="setquestion" element={<QuestionSet/>}></Route>
+                    <Route path="moderator" element={<AccessControl/>}></Route>
+
 
            </Route>
            
