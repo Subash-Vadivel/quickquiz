@@ -21,6 +21,7 @@ import LeaderBoard from "./Resources/User_Pages/LeaderBoard"
 import UserDetails from './Resources/User_Pages/UserDetails';
 import AccessControl from './Resources/Admin_Pages/AccessControl';
 import TermsCondition from './Resources/User_Pages/Footer_Pages/TermsCondition';
+import UpdateQuestion from './Resources/Admin_Pages/UpdateQuestion';
 function App() {
   return (
     <>
@@ -44,6 +45,8 @@ function App() {
                     <Route index element={<DashBoard/>}></Route>
                     <Route path="setquestion" element={<QuestionSet/>}></Route>
                     <Route path="moderator" element={<AccessControl/>}></Route>
+                    <Route path="updatequestion" element={<UpdateQuestion/>}></Route>
+
 
 
            </Route>

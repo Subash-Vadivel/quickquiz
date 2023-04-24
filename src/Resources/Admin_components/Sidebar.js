@@ -29,11 +29,11 @@ export default function Sidebar() {
               <NavLink exact to='setquestion' activeClassName="activeClicked">
                 <CDBSidebarMenuItem icon="table">Add Question</CDBSidebarMenuItem>
               </NavLink>
+              <NavLink exact to="updatequestion" activeClassName="activeClicked">
+                <CDBSidebarMenuItem icon="chart-line">Update Question</CDBSidebarMenuItem>
+              </NavLink>
               <NavLink exact to="moderator" activeClassName="activeClicked">
                 <CDBSidebarMenuItem icon="user">Access Control</CDBSidebarMenuItem>
-              </NavLink>
-              <NavLink exact to="analytics" activeClassName="activeClicked">
-                <CDBSidebarMenuItem icon="chart-line">Analytics</CDBSidebarMenuItem>
               </NavLink>
   
               <NavLink onClick={auth.logout}  activeClassName="activeClicked">
