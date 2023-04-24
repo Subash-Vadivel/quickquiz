@@ -21,6 +21,9 @@ import LeaderBoard from "./Resources/User_Pages/LeaderBoard"
 import UserDetails from './Resources/User_Pages/UserDetails';
 import AccessControl from './Resources/Admin_Pages/AccessControl';
 import BecomeaMember from '../src/Resources/User_Pages/Footer_Pages/BecomeaMember'
+import ContactUs from '../src/Resources/User_Pages/Footer_Pages/ContactUs'
+import Support from '../src/Resources/User_Pages/Footer_Pages/Support'
+
 function App() {
   return (
     <>
@@ -34,8 +37,11 @@ function App() {
               <Route path='profile' element={<Profile/>}></Route>
               <Route path='details' element={<UserDetails/>}></Route>
               <Route path='leaderboard' element={<LeaderBoard/>}></Route>
-              <Route path='becomeamember' element={<BecomeaMember/>}></Route>
+              <Route path='/becomeamember' element={<BecomeaMember/>}></Route>
+              <Route path='/contactus' element={<ContactUs/>}></Route>
+              <Route path='/support' element={<Support/>}></Route>
             </Route>
+            
             <Route path='login' element={<Login/>}/>
             <Route path='/taketest/:id' element={<AutoLayoutExample/>}></Route>
            <Route path='/admin' element={<AdminLoginRequired><Admin/></AdminLoginRequired>}>

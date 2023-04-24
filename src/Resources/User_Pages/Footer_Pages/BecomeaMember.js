@@ -1,7 +1,9 @@
 import React from 'react'
+import image from '../asset/comingsoon.jpg'
 
 export default function BecomeaMember() {
+  
   return (
-    <h5 style={"color:rgba(71,11,130,1)"}>Coming soon...</h5>
+    <center><img src={image} height="200px" width="200px" ></img></center>
   )
 }

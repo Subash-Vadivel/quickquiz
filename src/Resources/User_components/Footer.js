@@ -19,14 +19,11 @@ function Footer()
                 <li onClick={()=>{navigate('/contactus')}}>Contact Us</li>
                 <li onClick={()=>{navigate('/practice')}}>Practice</li>
                 <li  onClick={()=>{navigate('/support')}}>Support</li>
-                <li>Careers</li>
-                <li>Blog</li>
                 </ul></Col>
             <Col md={3} sm={6} xs={6}>
                 <ul type="none" className={style.footLi}>
                     <li>Info</li>
                     <li onClick={()=>{navigate('/test')}}>Compete</li>
-                    <li>Business Partner</li>
                     <li onClick={()=>{navigate('/becomeamember')}}>Become a Member</li>
                     <li onClick={()=>
                     {
