@@ -20,6 +20,7 @@ import AutoLayoutExample from './Resources/User_components/Question/AutoLayoutEx
 import LeaderBoard from "./Resources/User_Pages/LeaderBoard"
 import UserDetails from './Resources/User_Pages/UserDetails';
 import AccessControl from './Resources/Admin_Pages/AccessControl';
+import TermsCondition from './Resources/User_Pages/Footer_Pages/TermsCondition';
 function App() {
   return (
     <>
@@ -33,6 +34,7 @@ function App() {
               <Route path='profile' element={<Profile/>}></Route>
               <Route path='details' element={<UserDetails/>}></Route>
               <Route path='leaderboard' element={<LeaderBoard/>}></Route>
+              <Route path='termsconditions' element={<TermsCondition/>}></Route>
 
             
             </Route>

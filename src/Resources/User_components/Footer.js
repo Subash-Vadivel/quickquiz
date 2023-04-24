@@ -29,7 +29,7 @@ function Footer()
                     <li>Business Partner</li>
                     <li onClick={()=>{navigate('/becomemember')}}>Become a Member</li>
                     <li onClick={()=>{navigate('/privacypolicy')}}>Privacy Policy</li>
-                    <li onClick={()=>{navigate('/terms&conditions')}}>Terms & Conditions</li>
+                    <li onClick={()=>{navigate('/termsconditions')}}>Terms & Conditions</li>
                     {/* &#38; */}
                 </ul>
             </Col>
