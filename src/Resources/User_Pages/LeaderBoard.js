@@ -3,9 +3,12 @@ import leaderboard_styles from '../User_css/leaderboard.module.css'
 import axiosPrivate from '../../Api/axiosPrivate';
 import { Form, Row, Col, Container, Button , Table} from 'react-bootstrap';
 import {FaSearch} from 'react-icons/fa'
+import {useAuth} from '../../Authentication'
 
 export default function LeaderBoard() {
 
+  const auth = useAuth().details;
+  const id = JSON.parse(auth).user_id;
   const [start,setStart] = useState(0)
   const [leaderboard,setLeaderboard] = useState([])
   const [searchResult,setSearchResult] = useState()
@@ -13,7 +16,7 @@ export default function LeaderBoard() {
 
 
   const load=async()=>{
-    await axiosPrivate.post('/user/ranking').then((res)=>{
+    await axiosPrivate.post('/user/ranking',{id}).then((res)=>{
         setLeaderboard(res.data); 
         console.log(res)
     }).catch((err)=>{console.log(err)})
