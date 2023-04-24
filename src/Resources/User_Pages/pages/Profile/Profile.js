@@ -116,7 +116,7 @@ function Profile() {
           </div>
           <div className="user_profile_badges" style={{ width: "100%" }}>
             <>
-              <BadgeCard courses={courses} />
+              {/* <BadgeCard courses={courses} /> */}
             </>
           </div>
           <div className="user_profile_tests" style={{ width: "100%" }}>

@@ -19,6 +19,7 @@ import Profile from './Resources/User_Pages/pages/Profile/Profile';
 import AutoLayoutExample from './Resources/User_components/Question/AutoLayoutExample';
 import LeaderBoard from "./Resources/User_Pages/LeaderBoard"
 import UserDetails from './Resources/User_Pages/UserDetails';
+import AccessControl from './Resources/Admin_Pages/AccessControl';
 function App() {
   return (
     <>
@@ -40,6 +41,8 @@ function App() {
            <Route path='/admin' element={<AdminLoginRequired><Admin/></AdminLoginRequired>}>
                     <Route index element={<DashBoard/>}></Route>
                     <Route path="setquestion" element={<QuestionSet/>}></Route>
+                    <Route path="moderator" element={<AccessControl/>}></Route>
+
 
            </Route>
            
