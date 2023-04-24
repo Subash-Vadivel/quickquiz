@@ -9,5 +9,12 @@ export default function AuthLoginRequired(props) {
         console.log("Not Logged : "+auth.user);
         return <Navigate to='login' state={{path:location.pathname}}></Navigate>
     }
+    console.log()
+    if(!JSON.parse(auth.details).isAdmin && !JSON.parse(auth.details).isStaff)
+    {
+      auth.logout();
+      return <Navigate to='login' state={{path:location.pathname}}></Navigate>
+
+    }
   return props.children;
 }
