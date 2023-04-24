@@ -1,13 +1,11 @@
 .hr{
     justify-content: center; 
     text-align: center; 
-    border-bottom: 1px solid #000; 
-    line-height: 0.1em;
-    padding: 0% 2% 0% 2%;
+    line-height: 0.2em;
+    /* padding: 0% 2% 0% 2%; */
     margin: 2% 2% 2% 2%;
-    padding: 0 10px;
-    background-color:#18354C;
-    color: #18354C;
+    background-color: rgba(71,11,130,1);
+    color: rgba(71,11,130,1);
     font-size: x-large;
 }
  .hr span { 
@@ -19,6 +17,56 @@
     text-align: center;
  }
 
+ .th{
+   background-color:rgba(71,11,130,1) ;
+   color:#fff;
+ }
+
+ tr{
+   height: 50px;
+   /* outline : 0.2px solid rgba(71,11,130,1) */
+ }
+
+ .usertr{
+   background-color:rgb(4, 182, 241);
+ }
+
+ tr:hover{
+   font-size: large;
+ }
+
+ .searchbar{
+    outline : none;
+    border: none;
+    border-radius: 0;
+    border-bottom: 2px solid ; 
+    line-height: 0.1em;
+    color: rgba(71,11,130,1);
+ }
+
  .search{
-    padding: 2%;
+    display: flex;
+    flex-direction: row;
+    margin: 0 0 2% 0;
+ }
+
+ .searchbar:focus{
+   border-bottom: 2px solid rgba(71,11,130,1); 
+}
+
+.search > .button:hover{
+    background-color: transparent;
+    border-bottom: 2px solid rgba(71,11,130,1); 
+}
+ .button{
+    outline:none;
+    border: none;
+    border-radius: 0;
+    border-bottom: 2px solid  rgba(71,11,130,1) ;
+    line-height: 0.1em;
+    background-color: transparent;
+ }
+
+ .button :hover{
+    font-size: large;
  }
