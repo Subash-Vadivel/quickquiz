@@ -3,10 +3,12 @@ import leaderboard_styles from '../User_css/leaderboard.module.css'
 import axiosPrivate from '../../Api/axiosPrivate';
 import { Card, Form, Row, Col, Container, Button , Table} from 'react-bootstrap';
 import { useAuth } from '../../Authentication';
+import {FaSearch} from 'react-icons/fa';
 
 export default function LeaderBoard() {
   const auth=useAuth().details;
   const id=JSON.parse(auth).user_id;
+  const [start,setStart] = useState(0)
   const [leaderboard,setLeaderboard] = useState([]) 
   const [myposition,setmyposition]=useState();
   const[myrank,setmyrank]=useState();
