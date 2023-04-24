@@ -24,7 +24,7 @@ export default function AdminLoginForm(props) {
 e.preventDefault();
      await axiosPrivate.post('/accounts/login',{user:userid,
      password:password}).then((res)=>{
-     if(!res.data.data.isAdmin && !res.data.data.isAdmin )
+     if(!res.data.data.isAdmin && !res.data.data.isStaff )
      {
       toast.warning('Unauthorized Access');
      }
