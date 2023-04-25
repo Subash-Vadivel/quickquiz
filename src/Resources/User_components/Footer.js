@@ -19,17 +19,17 @@ function Footer()
                 <li onClick={()=>{navigate('/contactus')}}>Contact Us</li>
                 <li onClick={()=>{navigate('/practice')}}>Practice</li>
                 <li  onClick={()=>{navigate('/support')}}>Support</li>
-                <li>Careers</li>
-                <li>Blog</li>
                 </ul></Col>
             <Col md={3} sm={6} xs={6}>
                 <ul type="none" className={style.footLi}>
-                    <li>Info</li>
                     <li onClick={()=>{navigate('/test')}}>Compete</li>
-                    <li>Business Partner</li>
-                    <li onClick={()=>{navigate('/becomemember')}}>Become a Member</li>
-                    <li onClick={()=>{navigate('/privacypolicy')}}>Privacy Policy</li>
-                    <li onClick={()=>{navigate('/termsconditions')}}>Terms & Conditions</li>
+                    <li onClick={()=>{navigate('/becomeamember')}}>Become a Member</li>
+                    <li onClick={()=>
+                    {
+                        window.location.href="https://www.freeprivacypolicy.com/live/acd31768-fe6b-4bee-b4dd-28d76fe45b06";
+                    }
+                    }>Privacy Policy</li>
+                    <li onClick={()=>{navigate('/terms&conditions')}}>Terms & Conditions</li>
                     {/* &#38; */}
                 </ul>
             </Col>

@@ -34,7 +34,6 @@ const [start,setStart]=useState(0);
 
 useEffect(()=>{
   load();
-  
 },[],console.log(leaderboard))
 
   return (
@@ -114,7 +113,7 @@ useEffect(()=>{
       </Row>
     <Table className = {leaderboard_styles.table} striped bordered hover>
       <thead>
-        <tr>
+        <tr className = {leaderboard_styles.th}>
           <th Style = {"width:10%"}>Rank</th>
           <th>Username</th>
           <th Style = {"width:20%"}>Points</th>

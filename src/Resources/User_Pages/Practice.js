@@ -227,7 +227,7 @@ return (
     <Container fluid className={practice_styles.maincontainer}>
         <Row className={practice_styles.practicelist}>
         
-              { filter.slice(start,start+5).map((data,index)=> 
+            { filter.slice(start,start+5).map((data,index)=> 
             <Col key={index}>
                 {console.log(data)}
                 <Card className={practice_styles.questionpaper} >

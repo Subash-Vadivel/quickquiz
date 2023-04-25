@@ -1,61 +1,46 @@
 import React from 'react'
-import { Container, Row, Col, ListGroup } from 'react-bootstrap';
+import about_styles from '../../User_css/about.module.css'
+import {Card,Container,Row} from 'react-bootstrap'
+
 export default function TermsCondition() {
   return (
+    <>
+    <div className={about_styles.hr}><span><b>Terms & Conditions</b></span></div>
+    <br></br> 
     <Container>
-    <h1 className="text-center mt-5 mb-4">Terms and Conditions</h1>
-    <Row>
-      <Col md={10} lg={8} className="mx-auto">
-        <ListGroup variant="flush">
-          <ListGroup.Item>
-            <h2>General Terms:</h2>
-            <ul>
-              <li>QuickQuiz.rido.live is a platform that provides online quizzes for entertainment and educational purposes only.</li>
-              <li>By using this platform, you acknowledge that you are at least 18 years old or that you have obtained consent from your parent or legal guardian.</li>
-              <li>QuickQuiz.rido.live reserves the right to modify or update these terms and conditions at any time without prior notice.</li>
-            </ul>
-          </ListGroup.Item>
-          <ListGroup.Item>
-            <h2>User Conduct:</h2>
-            <ul>
-              <li>Users agree to use the platform for lawful purposes only and to refrain from any activity that violates any applicable laws or regulations.</li>
-              <li>Users must not submit any content that is defamatory, harmful, abusive, obscene, or illegal.</li>
-              <li>Users are solely responsible for the content they submit to the platform, and QuickQuiz.rido.live will not be liable for any damages resulting from user-submitted content.</li>
-            </ul>
-          </ListGroup.Item>
-          <ListGroup.Item>
-            <h2>Intellectual Property:</h2>
-            <ul>
-              <li>QuickQuiz.rido.live owns all the intellectual property rights to the website and its contents, including text, graphics, logos, and images.</li>
-              <li>Users agree not to reproduce, modify, distribute, or exploit any part of the website without prior written consent from QuickQuiz.rido.live.</li>
-            </ul>
-          </ListGroup.Item>
-          <ListGroup.Item>
-            <h2>Limitation of Liability:</h2>
-            <ul>
-              <li>QuickQuiz.rido.live shall not be liable for any damages, including but not limited to direct, indirect, incidental, punitive, or consequential damages, arising out of or in connection with the use of the platform.</li>
-              <li>QuickQuiz.rido.live shall not be liable for any loss or damage resulting from any interruption, error, delay, or other malfunction of the website.</li>
-            </ul>
-          </ListGroup.Item>
-          <ListGroup.Item>
-            <h2>Indemnification:</h2>
-            <ul>
-              <li>Users agree to indemnify and hold harmless QuickQuiz.rido.live and its affiliates, officers, directors, employees, and agents from any claim, demand, or damages arising out of or in connection with the use of the platform or any user-submitted content.</li>
-            </ul>
-          </ListGroup.Item>
-          <ListGroup.Item>
-            <h2>Governing Law:</h2>
-            <ul>
-              <li>These terms and conditions shall be governed by and construed in accordance with the laws of the jurisdiction in which QuickQuiz.rido.live is based.</li>
-              <li>Any dispute arising out of or in connection with these terms and conditions shall be subject to the exclusive jurisdiction of the courts of the jurisdiction in which QuickQuiz.rido.live is based.</li>
-            </ul>
-          </ListGroup.Item>
-        </ListGroup>
-      </Col>
-      </Row>
-      </Container>
+    <Card className={about_styles.card}>
+    <Card.Title><center>QuickQuiz</center></Card.Title>
+    <Card.Body>
+   Welcome to Quickquiz, a technical learning and quiz platform designed to enhance your knowledge and skills. By using our platform, you agree to the following terms and conditions:
 
+<Row><b>1. Account Creation: </b>You must create an account with Quickquiz to access our platform. When creating an account, you must provide accurate and complete information about yourself. You are responsible for maintaining the confidentiality of your login credentials and all activities that occur under your account.</Row>
 
+<Row><b>2. Age Restrictions: </b>Quickquiz is designed for individuals who are 13 years of age or older. If you are under 13 years of age, you may not use our platform.</Row>
 
-        )
+<Row><b>3. Platform Usage: </b>Quickquiz provides a platform for technical learning and quizzes. You agree to use our platform only for lawful purposes and in accordance with these terms and conditions. You must not use our platform for any illegal or unauthorized purpose.</Row>
+
+<Row><b>4. Prohibited Activities: </b>You must not engage in any activity that disrupts or interferes with our platform, including but not limited to hacking, scraping, or attempting to access our platform without permission. You must not upload, post, or transmit any content that is unlawful, harmful, threatening, abusive, defamatory, vulgar, obscene, invasive of another's privacy, or otherwise objectionable.</Row>
+
+<Row><b>5. Intellectual Property: </b>Quickquiz owns all intellectual property rights in our platform, including but not limited to trademarks, copyrights, and patents. You agree not to use any of our intellectual property without our prior written consent.</Row>
+
+<Row><b>6. User-Generated Content: </b>You may upload or post content on our platform, including but not limited to comments and questions. You retain ownership of all content that you upload or post on our platform, but you grant us a non-exclusive, worldwide, royalty-free, transferable license to use, modify, and distribute your content.</Row>
+
+<Row><b>7. Termination: </b>Quickquiz reserves the right to terminate your account at any time, without notice, for any reason or no reason. You may also terminate your account at any time by contacting us.</Row>
+
+<Row><b>8. Disclaimer of Warranties: </b>Quickquiz provides our platform "as is" and without any warranty or guarantee. We do not guarantee that our platform will be free of errors or uninterrupted. We disclaim all warranties, express or implied, including but not limited to warranties of merchantability and fitness for a particular purpose.</Row>
+
+<Row><b>9. Limitation of Liability: </b>In no event will Quickquiz be liable to you or any third party for any damages, including but not limited to direct, indirect, incidental, special, or consequential damages, arising out of your use of our platform or your inability to use our platform.</Row>
+
+<Row><b>10. Indemnification: </b>You agree to indemnify and hold Quickquiz, its affiliates, officers, agents, and employees harmless from any claim, demand, or damage, including reasonable attorneys' fees, arising out of your use of our platform or your violation of these terms and conditions.</Row>
+
+<Row><b>11. Governing Law: </b>These terms and conditions will be governed by and construed in accordance with the laws of the jurisdiction in which Quickquiz operates.</Row>
+
+<Row><b>12. Modification: </b>Quickquiz reserves the right to modify these terms and conditions at any time, without notice, by posting the revised terms and conditions on our platform. Your continued use of our platform after the posting of the revised terms and conditions constitutes your agreement to the revised terms and conditions.</Row>
+
+By using Quickquiz, you acknowledge that you have read and understood these terms and conditions, and you agree to be bound by them. If you do not agree to these terms and conditions, you may not use our platform.
+    </Card.Body>
+    </Card>
+    </Container>
+    </>
+  )
 }
