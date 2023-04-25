@@ -15,8 +15,16 @@ function PreviousTestList({ tests }) {
               </ListGroup.Item>
               {tests.map((test) => (
                 <ListGroup.Item key={test._id}>
+                <Row>
+                  <Col sm={8}>
                   <h4 className={styles.testName}>{test.qnName}</h4>
                   <p className={styles.testDate}>{new Date(test.updatedAt).toUTCString()}</p>
+                  </Col>
+                  <Col sm={4}>
+                  <p className={styles.testScore}>Correct Answers: {test.correctanswers}/{test.totalquestions}</p>
+                  <p className={styles.testScore}>Score : {test.score}/{test.totalscore}</p>
+                  </Col>
+                </Row>
                 </ListGroup.Item>
               ))}
             </ListGroup>
