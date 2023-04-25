@@ -1,6 +1,6 @@
 import React from 'react'
-import support_styles from '../../User_css/contactus.module.css'
-import {Card,Container,Row} from 'react-bootstrap'
+import support_styles from '../../User_css/support.module.css'
+import {Card,Container,Row,Form,Button} from 'react-bootstrap'
 
 export default function Support() {
   return (
@@ -8,11 +8,10 @@ export default function Support() {
     <div className={support_styles.hr}><span><b>Support</b></span></div>
     <br></br> 
     <Container>
-    <Card className={support_styles.card}>
-        <Card.Body>
-        <Row><center>Write to us : <b>quickquiz.rido@gmail.com</b></center></Row>
-        </Card.Body>
-    </Card>
+        <Form className={support_styles.card}>
+          <Row><textarea placeholder="Write to us"></textarea></Row>
+          <Row><center><Button type="submit">Submit</Button></center></Row>
+        </Form>
     </Container>
     </>
   )

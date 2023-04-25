@@ -22,7 +22,6 @@ function Footer()
                 </ul></Col>
             <Col md={3} sm={6} xs={6}>
                 <ul type="none" className={style.footLi}>
-                    <li>Info</li>
                     <li onClick={()=>{navigate('/test')}}>Compete</li>
                     <li onClick={()=>{navigate('/becomeamember')}}>Become a Member</li>
                     <li onClick={()=>

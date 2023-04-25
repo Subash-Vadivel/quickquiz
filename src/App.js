@@ -23,6 +23,8 @@ import AccessControl from './Resources/Admin_Pages/AccessControl';
 import BecomeaMember from '../src/Resources/User_Pages/Footer_Pages/BecomeaMember'
 import ContactUs from '../src/Resources/User_Pages/Footer_Pages/ContactUs'
 import Support from '../src/Resources/User_Pages/Footer_Pages/Support'
+import About from '../src/Resources/User_Pages/Footer_Pages/About'
+import TermsCondition from './Resources/User_Pages/Footer_Pages/TermsCondition';
 
 function App() {
   return (
@@ -40,6 +42,8 @@ function App() {
               <Route path='/becomeamember' element={<BecomeaMember/>}></Route>
               <Route path='/contactus' element={<ContactUs/>}></Route>
               <Route path='/support' element={<Support/>}></Route>
+              <Route path='/about' element={<About/>}></Route>
+              <Route path='/terms&conditions' element={<TermsCondition/>}></Route>
             </Route>
             
             <Route path='login' element={<Login/>}/>
