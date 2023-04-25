@@ -3,6 +3,7 @@ import styles from './PreviousTest.module.css'
 import { Container, Row, Col, Image, ListGroup } from "react-bootstrap";
 
 function PreviousTestList({ tests }) {
+  
   return (
     <>
       <Container>
@@ -13,9 +14,9 @@ function PreviousTestList({ tests }) {
                 Completed Test
               </ListGroup.Item>
               {tests.map((test) => (
-                <ListGroup.Item key={test.id}>
-                  <h4 className={styles.testName}>{test.name}</h4>
-                  <p className={styles.testDate}>{test.date}</p>
+                <ListGroup.Item key={test._id}>
+                  <h4 className={styles.testName}>{test.qnName}</h4>
+                  <p className={styles.testDate}>{new Date(test.updatedAt).toUTCString()}</p>
                 </ListGroup.Item>
               ))}
             </ListGroup>

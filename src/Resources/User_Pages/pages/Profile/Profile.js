@@ -1,12 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import BadgeCard from '../../components/Common/Badge/BadgeCard';
 import PreviousTestsList from '../../components/Common/PreviousTest/PreviousTest';
 import Progress from '../../components/Common/ProgressBar/Progress';
 import Sidebar from '../../components/Common/SideBar/SideBar';
 import { Card } from 'react-bootstrap';
 import './Profile.css'
+import { useAuth } from '../../../../Authentication';
+import axiosPrivate from '../../../../Api/axiosPrivate';
 
 function Profile() {
+const id=JSON.parse(useAuth().details).user_id;
+const [flag,setflag]=useState(false);
+const [data,setdata]=useState();
+const load=async()=>{
+await axiosPrivate.post('/user/userdetails',{uid:id}).then((res)=>{setdata(res.data.data);setflag(true);console.log(res.data.data)}).catch((err)=>{console.log(err)});
+}
+   useEffect(()=>{
+load();
+   },[])
+
+
   const username = "Roshi";
   const profileImageUrl = "https://icon_url";
   const completedCourses = [
@@ -15,56 +28,7 @@ function Profile() {
     "React Bootstrap",
   ];
 
-  const courses = [
-    {
-      id: 1,
-      name: "HTML",
-      totalModules: 10,
-      completedModules: 5,
-    },
-    {
-      id: 2,
-      name: "CSS",
-      totalModules: 8,
-      completedModules: 4,
-    },
-    {
-      id: 3,
-      name: "JS",
-      totalModules: 6,
-      completedModules: 2,
-    },
-    {
-      id: 4,
-      name: "React",
-      totalModules: 12,
-      completedModules: 6,
-    },
-    {
-      id: 5,
-      name: "Node",
-      totalModules: 8,
-      completedModules: 3,
-    },
-    {
-      id: 6,
-      name: "MongoDB",
-      totalModules: 6,
-      completedModules: 2,
-    },
-    {
-      id: 7,
-      name: "Node",
-      totalModules: 8,
-      completedModules: 3,
-    },
-    {
-      id: 8,
-      name: "MongoDB",
-      totalModules: 6,
-      completedModules: 2,
-    },
-  ];
+  
 
   const tests = [
     {
@@ -95,17 +59,21 @@ function Profile() {
   };
   return (
     <>
+    {
+      flag?
+    (
+<>
     <div className="user_profile_hr"><span><b>Profile</b></span></div>
     {/* <Card className="user_profile_headcontainer">
           <Card.Body className="user_profile_cardbody">
             <Card.Title className="user_profile_title"></Card.Title>
           </Card.Body>
-    </Card>
-    <br></br>   */}
+    </Card> */}
+    <br></br>  
       <div className="user_profile_container">
         <div className="user_profile_sidebar">
           <Sidebar
-            username={username}
+            username={data.firstName}
             profileImageUrl={profileImageUrl}
             completedCourses={completedCourses}
           />
@@ -121,11 +89,13 @@ function Profile() {
           </div>
           <div className="user_profile_tests" style={{ width: "100%" }}>
             <>
-              <PreviousTestsList tests={tests} />
+              <PreviousTestsList tests={data.test} />
             </>
           </div>
         </div>
       </div>
+     </> 
+      ):(<p>Loading</p>)}
     </>
   );
 }
