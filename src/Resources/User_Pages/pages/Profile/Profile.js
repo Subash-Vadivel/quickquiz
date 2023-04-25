@@ -12,8 +12,17 @@ function Profile() {
 const id=JSON.parse(useAuth().details).user_id;
 const [flag,setflag]=useState(false);
 const [data,setdata]=useState();
+const [test_status,setteststatus]=useState({})
 const load=async()=>{
-await axiosPrivate.post('/user/userdetails',{uid:id}).then((res)=>{setdata(res.data.data);setflag(true);console.log(res.data.data)}).catch((err)=>{console.log(err)});
+await axiosPrivate.post('/user/userdetails',{uid:id}).then((res)=>{setdata(res.data.data);
+  console.log(res.data.data.medium);
+  setteststatus({
+    easy: { value: res.data.data.easy, total: res.data.easyCount },
+    medium: { value: res.data.data.medium, total: res.data.mediumCount },
+    hard: { value: res.data.data.hard, total: res.data.hardCount },
+  });
+  
+  setflag(true);console.log(res.data)}).catch((err)=>{console.log(err)});
 }
    useEffect(()=>{
 load();
@@ -52,11 +61,11 @@ load();
   ];
 
   
-  const test_status = {
-    easy: { value: "15", total: "35" },
-    medium: { value: "10", total: "20" },
-    hard: { value: "5", total: "10" },
-  };
+  // const test_status = {
+  //   easy: { value: "15", total: "35" },
+  //   medium: { value: "10", total: "20" },
+  //   hard: { value: "5", total: "10" },
+  // };
   return (
     <>
     {

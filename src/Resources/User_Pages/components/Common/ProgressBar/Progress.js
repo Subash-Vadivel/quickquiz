@@ -30,11 +30,11 @@ function Progress({ test_status }) {
   const hard_percent = ((hard / hard_total) * 100).toFixed(1);
 
   const total_tests =
-    parseInt(easy_total) + parseInt(medium_total) + parseInt(hard_total);
+    (easy_total) + (medium_total) + (hard_total);
   const total_completed_tests = (
-    parseInt(easy) +
-    parseInt(medium) +
-    parseInt(hard)
+   (easy) +
+    (medium) +
+    (hard)
   ).toFixed(1);
   const total_percent = ((total_completed_tests / total_tests) * 100).toFixed(
     1
