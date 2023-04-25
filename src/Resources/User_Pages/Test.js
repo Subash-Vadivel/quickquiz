@@ -232,7 +232,7 @@ return (
                 {console.log(data)}
                 <Card className={practice_styles.questionpaper} >
                     <Card.Title>
-                        <Row><Col sm={9}>Topic : {data.topic}</Col><Col>Time : {data.time}</Col></Row></Card.Title>
+                        <Row><Col sm={9}>Topic : {data.topic}</Col><Col>Time : {data.time} Min</Col></Row></Card.Title>
                     <Card.Body>
                     <Row>
                     <Col sm={6}><Card.Text>Category :  {data.categoryName}</Card.Text></Col>

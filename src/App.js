@@ -25,6 +25,7 @@ import ContactUs from '../src/Resources/User_Pages/Footer_Pages/ContactUs'
 import Support from '../src/Resources/User_Pages/Footer_Pages/Support'
 import About from '../src/Resources/User_Pages/Footer_Pages/About'
 import TermsCondition from './Resources/User_Pages/Footer_Pages/TermsCondition';
+import UpdateQuestion from './Resources/Admin_Pages/UpdateQuestion';
 
 function App() {
   return (
