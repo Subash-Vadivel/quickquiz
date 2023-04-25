@@ -39,11 +39,11 @@ function App() {
               <Route path='profile' element={<Profile/>}></Route>
               <Route path='details' element={<UserDetails/>}></Route>
               <Route path='leaderboard' element={<LeaderBoard/>}></Route>
-              <Route path='/becomeamember' element={<BecomeaMember/>}></Route>
-              <Route path='/contactus' element={<ContactUs/>}></Route>
-              <Route path='/support' element={<Support/>}></Route>
-              <Route path='/about' element={<About/>}></Route>
-              <Route path='/terms&conditions' element={<TermsCondition/>}></Route>
+              <Route path='becomeamember' element={<BecomeaMember/>}></Route>
+              <Route path='contactus' element={<ContactUs/>}></Route>
+              <Route path='support' element={<Support/>}></Route>
+              <Route path='about' element={<About/>}></Route>
+              <Route path='terms&conditions' element={<TermsCondition/>}></Route>
             </Route>
             
             <Route path='login' element={<Login/>}/>
